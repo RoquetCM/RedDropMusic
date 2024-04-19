@@ -20,10 +20,6 @@ public class Hura : MonoBehaviour
     [SerializeField]
     protected float vidaMaxima;//vida del jugador al maximo.
 
-    [Range(0f, 5f)]
-    [SerializeField]
-    protected float potenciaSalto;//la fuerza que tiene que hacer el jugador para poder saltar con numeros.
-
     [SerializeField]
     protected bool furia;// Aqui sabremos si la furia esta activada o no lo esta.
     protected float danio;// este es el danio que hace el jugador.
@@ -45,14 +41,6 @@ public class Hura : MonoBehaviour
     protected int gatoBotiquin;
     [SerializeField]
     protected int curaGato;
-
-    [Space]
-    [Space]
-    [Header("Datos Personales")]
-    [Tooltip("Nombre del perosnaje")]
-    [SerializeField]
-    protected string nombre;//nobre de l jugador.
-
     protected float h;
     protected bool estoysaltando;// Aui vemos si el jugador esta saltando o no lo esta.
 
@@ -69,6 +57,8 @@ public class Hura : MonoBehaviour
     protected Color color1;//Sirve para cambiar el color al jugador(prubas)
 
     protected bool bloquearParry;
+
+    protected bool bloquearHura;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -87,6 +77,13 @@ public class Hura : MonoBehaviour
     protected GameObject camvaPausa;
     protected bool bloquearPausa;
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    [SerializeField]
+    protected Transform[] canciones;
+    protected float movimientoACancion = 5f;
+    protected int cancionActual;
+    
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +113,8 @@ public class Hura : MonoBehaviour
 
     void Start()
     {
+        bloquearHura = false;
+        cancionActual=0;
         bloquearPausa = false;
         curaGato = 20;
         bloquearParry = false;
@@ -146,13 +145,13 @@ public class Hura : MonoBehaviour
     {
         //El perosnaje se podra mover usando las "teclas horizontales"
         h = velocidad * Time.deltaTime * Input.GetAxis("Horizontal");
-        this.gameObject.transform.Translate(h, 0.0f, 0.0f);
+        //this.gameObject.transform.Translate(h, 0.0f, 0.0f);
         if (h > 0.0f)
         {
             this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetInteger("estadoPersonaje", 1);
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
             this.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
-            this.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
+            this.gameObject.transform.GetChild(0).transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = false;
             this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
             dondeEstoyMirando = 1;
@@ -162,7 +161,7 @@ public class Hura : MonoBehaviour
             this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetInteger("estadoPersonaje", 1);
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
             this.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = true;
-            this.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = true;
+            this.gameObject.transform.GetChild(0).transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = true;
             this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
             dondeEstoyMirando = 0;
@@ -189,24 +188,13 @@ public class Hura : MonoBehaviour
             }
           
 
-            this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetInteger("estadoPersonaje", -1);
+            this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetInteger("estadoPersonaje", 0);
            
         }
 
         this.transform.GetChild(1).transform.position = new Vector3(this.transform.GetChild(1).transform.position.x, posicionInicialSpawner.y, posicionInicialSpawner.z);
     }
-    void Saltar()
-    {
-       /*// le añade un fuerza para que pueda saltar
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!estoysaltando)
-            {
-                this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, potenciaSalto, 0);
-                estoysaltando = true;
-            }
-        }*/
-    }
+   
     void Furia()
     {
         //al presionar la tecla "R" se "aumentara el daño"
@@ -234,79 +222,7 @@ public class Hura : MonoBehaviour
         }
 
     }
-    void CambioDeCarril()
-    {
-
-        
-       //Aqqui podemosver como el personaje cambia de carril y caunto tarda estando en los carriles
-        if (bloquearMovimientoCarril == false)
-        {
-            if (carrilActual == 0)
-            {
-                if (objetoDesactivarD)
-                {
-                    objetoDesactivarD.SetActive(true);
-                    objetoDesactivarI.SetActive(false);
-                }
-                // aqui tenemos que desacctivar lo que recibe daño del carril derecho 
-                
-            }
-            else if (carrilActual == 1)
-            {
-                if (objetoDesactivarI)
-                {
-                    // aqui tenemos que desacctivar lo que recibe daño del carril izquierdo
-                    objetoDesactivarD.SetActive(false);
-                    objetoDesactivarI.SetActive(true);
-                }
-            }
-                    
-                    
-            if (Input.GetAxis("Vertical") > velocidadCambioDeCarril)
-            {
-                if (carrilActual == 0)
-                {
-                    this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("cambioCarril");
-                }
-                bloquearMovimientoCarril = true;
-                carrilActual += 1;
-                if (carrilActual >= carriles.Length)
-                {
-                    carrilActual = carriles.Length - 1;
-                }
-               
-                
-            }
-            else if (Input.GetAxis("Vertical") < -velocidadCambioDeCarril)
-            {
-                if (carrilActual == 1)
-                {
-                    this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("cambioCarril");
-                }
-                bloquearMovimientoCarril = true;
-                carrilActual -= 1;
-                if (carrilActual <= 0)
-                {
-                    carrilActual = 0;
-                }
-                
-            }
-        }
-        
-        posicionActual = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
-        posicionDestino = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, carriles[carrilActual].gameObject.transform.position.z);
-        if (Vector3.Distance(posicionActual, posicionDestino) >= 0.1f && bloquearMovimientoCarril)
-        {
-
-            this.gameObject.transform.position = Vector3.MoveTowards(posicionActual, posicionDestino, velocidadCambioCarril * Time.deltaTime);
-        }
-        else
-        {
-            this.gameObject.transform.position= new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, carriles[carrilActual].gameObject.transform.position.z);
-            bloquearMovimientoCarril = false;
-        }
-      
-    }
+    
     public void Pausa()
     {
         bloquearPausa = false;
@@ -353,14 +269,17 @@ public class Hura : MonoBehaviour
 
         if (estoyMuerto == false)
         {
-
-            if (CombatManager.instance.GetPermitirMovimiento() && CombatManager.instance.GetBloquearPorMamporro() == false)
+            
+  
+            if (CombatManager.instance.GetBloquearPorMamporro() == false)
             {
 
-                //Movimiento();
-                //CambioDeCarril();
-                //Parry();
-                
+                if (bloquearHura == false)
+                {
+                    Movimiento();
+                }
+
+
             }
             if (CombatManager.instance.GetBloquearPorMamporro() == false)
             {
@@ -387,8 +306,46 @@ public class Hura : MonoBehaviour
             
            
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            bloquearHura = true;
+           this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetInteger("estadoPersonaje", 1);
+            Vector3 targetPosition = canciones[cancionActual].position;
+            StartCoroutine(MoveTowards(targetPosition));
+        }
 
     }
+    IEnumerator MoveTowards(Vector3 targetPosition)
+    {
+        float distancia = 0;
+        distancia = Vector2.Distance(transform.position, targetPosition);
+        
+        while (transform.position != targetPosition)
+        {
+            
+            Vector3 direction = (targetPosition - transform.position).normalized;
+
+            
+            float step = movimientoACancion * Time.deltaTime;
+
+            
+            transform.position += direction * step;
+            distancia = Vector2.Distance(transform.position, targetPosition);
+            Debug.Log("Distancia HURA" + distancia);
+            if (distancia<0.5f)
+            {
+                Debug.Log("Estoy dentro muder fuker");
+                this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetInteger("estadoPersonaje", 0);
+                bloquearHura = false;
+                break;
+
+            }
+
+            yield return null; 
+        }
+        cancionActual++;
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         //Aqui podemos ver con que contacta el jugagacor colisionandose contr ellos 
@@ -399,28 +356,6 @@ public class Hura : MonoBehaviour
 
 
         }
-        if (other.gameObject.tag == "Barricada")
-        {
-            objetoDesactivarI = other.gameObject.transform.parent.transform.GetChild(2).gameObject;
-            objetoDesactivarD = other.gameObject.transform.parent.transform.GetChild(1).gameObject;
-
-            //Una vez choque contra la baaricada esta hara que spwnen los enemigos.
-            other.gameObject.GetComponent<SpawnBarricadaController>().SpawnearBarricadaFurmigaRandom();
-            General.instance.SetGolpesBarricada(5);
-
-
-        }
-
-        if (other.gameObject.tag == "FormigaCuajada")
-        {
-            
-            Hostion(20);
-        } 
-       
-     
-        
-
-
     }
     public void Hostion(int hostia)
     {
@@ -463,37 +398,13 @@ public class Hura : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "CamaraBloqueada")
-        {
-
-            camara.gameObject.GetComponent<Camara>().BloquearCamara(true);
-        }
-        if (other.gameObject.tag == "CamaraDesbloqueada")
-        {
-
-            camara.gameObject.GetComponent<Camara>().BloquearCamara(false);
-        }
-        if (other.gameObject.tag == "SpawnFurmigaRandom1")
-        {
-            // Accedr a un hijo con su trasnform y poder accder a su componenete SpawnController y a su metodo SpawnearFurmigaRandom1.
-            this.gameObject.transform.GetChild(2).GetComponent<SpawnController>().SpawnearFurmigaRandom1();
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.tag == "SpawnFurmigaRandom2")
-        {
-            this.gameObject.transform.GetChild(2).GetComponent<SpawnController>().SpawnearFurmigaRandom2();
-            Destroy(other.gameObject);
-        }
-
         if (other.gameObject.tag == "FinalDeNivel1")
         {
 
             SceneManager.LoadScene("PantallaStart");
         }
-
         if (other.gameObject.tag == "Comida")
         {
-
             vida = vida + curaComida;
             if (vida > vidaMaxima)
             {
@@ -522,54 +433,28 @@ public class Hura : MonoBehaviour
     }
     public void Ataque()
     {
-        if ( h==0.0f && CombatManager.instance.GetPermitirDanio() )
+        if (Input.GetKeyDown(KeyCode.J))
         {
-           // this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("ataque1");
-            
-            if (dondeEstoyMirando==1)
+            if (dondeEstoyMirando == 1)
             {
+                this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("ataque1");
                 this.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<HuraSprite>().Danyar(0);
                 CombatManager.instance.SetPermitirDanio(false);
             }
-            else 
+      
+
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (dondeEstoyMirando == 0)
             {
-                this.gameObject.transform.GetChild(0).transform.GetChild(1).GetComponent<HuraSprite>().Danyar(0);
+                this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("ataque2");
+                this.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<HuraSprite>().Danyar(0);
                 CombatManager.instance.SetPermitirDanio(false);
             }
-
-         
-        }
-    }
-    public void DesbloquearParry()
-    {
-        bloquearParry = false;
-    }
-    public void Parry()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (bloquearParry == false)
-            {
-                bloquearParry = true;
-                Invoke("DesbloquearParry",2);
-                General.instance.SetParryHura(true);
-                this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("parrys", true);
-            }
-            
-             //this.gameObject.transform.GetComponent<CapsuleCollider>().enabled = false;
-            
-                
+          
 
         }
-        if (Input.GetKeyUp(KeyCode.L))
-        {
-            General.instance.SetParryHura(false);
 
-            this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("parrys", false);
-            //this.gameObject.transform.GetComponent<CapsuleCollider>().enabled = true;
-            
-            
-        }
     }
-    
 }
