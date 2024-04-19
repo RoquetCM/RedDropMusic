@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8520e38b-8268-4a32-9132-fadd22243283}">
+		<property name="assetPath">
+			<value>sfx/pasos/boss/nivel 3/sfx_pasos18.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.4500000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{68739ba3-dd9d-4a81-901e-8ba06e750d87}</destination>
+		</relationship>
+	</object>
+</objects>

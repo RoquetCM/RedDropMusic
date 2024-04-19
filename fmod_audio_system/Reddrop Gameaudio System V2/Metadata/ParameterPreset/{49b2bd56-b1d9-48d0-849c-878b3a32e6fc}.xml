@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{49b2bd56-b1d9-48d0-849c-878b3a32e6fc}">
+		<property name="name">
+			<value>totemgato</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6341ba7e-09ff-4ce3-982e-fd3f8f3bb122}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3e00972e-2c3b-4dcc-af8e-baf3cbc774f4}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3e00972e-2c3b-4dcc-af8e-baf3cbc774f4}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

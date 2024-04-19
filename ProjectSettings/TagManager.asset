@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Suelo
+  - Hura
+  - SpawnFurmigaRandom1
+  - SpawnFurmigaRandom2
+  - Barricada
+  - FormigaCuajada
+  - FinalDeNivel1
+  - Comida
+  - FormigaTactica
+  - CamaraBloqueada
+  - CamaraDesbloqueada
+  - BarricadaD
+  - BarricadaI
+  - Caja
+  - Osamabinformiga
+  - Gato
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

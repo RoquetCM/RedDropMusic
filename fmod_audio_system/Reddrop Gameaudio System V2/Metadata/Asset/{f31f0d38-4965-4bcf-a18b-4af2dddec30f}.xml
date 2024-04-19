@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{f31f0d38-4965-4bcf-a18b-4af2dddec30f}">
+		<property name="assetPath">
+			<value>sfx/pasos/minion/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{68739ba3-dd9d-4a81-901e-8ba06e750d87}</destination>
+		</relationship>
+	</object>
+</objects>

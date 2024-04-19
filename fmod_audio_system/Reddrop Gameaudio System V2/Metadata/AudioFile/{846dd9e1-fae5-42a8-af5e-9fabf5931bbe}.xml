@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{846dd9e1-fae5-42a8-af5e-9fabf5931bbe}">
+		<property name="assetPath">
+			<value>sfx/sfx_axeattack5.aif</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.68304166666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{68739ba3-dd9d-4a81-901e-8ba06e750d87}</destination>
+		</relationship>
+	</object>
+</objects>

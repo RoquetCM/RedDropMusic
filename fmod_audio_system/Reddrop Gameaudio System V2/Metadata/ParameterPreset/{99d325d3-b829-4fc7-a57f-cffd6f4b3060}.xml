@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{99d325d3-b829-4fc7-a57f-cffd6f4b3060}">
+		<property name="name">
+			<value>powerstate</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6341ba7e-09ff-4ce3-982e-fd3f8f3bb122}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{636f5275-84c4-4a81-af53-17126e2040b7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{636f5275-84c4-4a81-af53-17126e2040b7}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
