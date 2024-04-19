@@ -364,7 +364,7 @@ MonoBehaviour:
   Path: fmod_audio_system/Reddrop Gameaudio System V2/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638464493560000000
+  lastModified: 638491120121188454
   FileSizes:
   - Name: Desktop
     Value: 2326
@@ -534,7 +534,7 @@ MonoBehaviour:
   - {fileID: 6308908118283964750}
   StringsBanks:
   - {fileID: -2910194486291514074}
-  cacheTime: 638464493560000000
+  cacheTime: 638491120121188454
   cacheVersion: 131616
 --- !u!114 &8910685347797328
 MonoBehaviour:
@@ -843,7 +843,7 @@ MonoBehaviour:
   Path: fmod_audio_system/Reddrop Gameaudio System V2/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638464493560000000
+  lastModified: 638491120121188454
   FileSizes:
   - Name: Desktop
     Value: 3960576
