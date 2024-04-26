@@ -23,9 +23,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/MenuPrincipal.unity
     guid: 3efe390b3f863724e938e53acc64e6d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Escenas/Options.unity
     guid: 259e0cac07f2a0f41b7b99ac9c7e57c7
+  - enabled: 1
+    path: Assets/Escenas/OptionsMain.unity
+    guid: 1ceac52372cecd246bb589e55fcedf8e
+  - enabled: 1
+    path: Assets/Escenas/OptionsGame.unity
+    guid: 38861197c72d02f4d876c52dd6b74ad2
   - enabled: 1
     path: Assets/Escenas/SelectorDeNiveles.unity
     guid: 73de0c186569fe143b3c9ee1b6c234ab

@@ -120,7 +120,7 @@ public class Hura : MonoBehaviour
         bloquearParry = false;
         gatoBotiquin = -1;
 
-        CombatManager.instance.SetPermitirMovimiento(false);
+    
         estoyMuerto = false;
         vida = 100;
         //barraDeVida.GetComponent<Slider>().value = vida;
@@ -269,18 +269,13 @@ public class Hura : MonoBehaviour
 
         if (estoyMuerto == false)
         {
-            
-  
-            if (CombatManager.instance.GetBloquearPorMamporro() == false)
-            {
-
                 if (bloquearHura == false)
                 {
                     Movimiento();
                 }
 
 
-            }
+            
             if (CombatManager.instance.GetBloquearPorMamporro() == false)
             {
                 Furia();
