@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FormigaMusical : Enemigo
+public class ComidaMusical : Enemigo
 {
     protected GameObject ren;
     [SerializeField]
@@ -15,7 +15,7 @@ public class FormigaMusical : Enemigo
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     void Start()
     {
         movimientoOriginal = movimiento;
@@ -29,12 +29,10 @@ public class FormigaMusical : Enemigo
         if (GeneralMusical.instance.GetPararJuego())
         {
             movimiento = 0;
-            this.GetComponent<Animator>().SetBool("corriendo", false);
         }
         else
         {
             movimiento = movimientoOriginal;
-            this.GetComponent<Animator>().SetBool("corriendo", true);
         }
         posPlayer = ren.gameObject.transform.position;
         this.transform.position = Vector3.MoveTowards(this.transform.position, posPlayer, movimiento * Time.deltaTime);
@@ -56,13 +54,12 @@ public class FormigaMusical : Enemigo
     {
         if (other.gameObject.tag == ("Ren"))
         {
-            other.gameObject.GetComponent<Ren2D>().Hostion(20);
-           Destroy(this.gameObject);
-            
+            Destroy(this.gameObject);
         }
     }
-    public void DanioEnemigo(int danio)
+    public void Curar(int danio)
     {
+        ren.gameObject.GetComponent<Ren2D>().ComerComida(20);
         vidaEnemigo = vidaEnemigo - danio;
         Muerte();
     }
@@ -81,3 +78,4 @@ public class FormigaMusical : Enemigo
         }
     }
 }
+

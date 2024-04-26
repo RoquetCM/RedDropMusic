@@ -23,9 +23,9 @@ public class RenAtaques : MonoBehaviour
 
         var contactFilter = new ContactFilter2D();
         contactFilter.NoFilter();
-        //Listado de todos los objetos con lo que  colisionado Hura en el ataque
+        
         List<Collider2D> objetosDetectados = new List<Collider2D>();
-        //Obtengo los objetos detectados
+        
         Physics2D.OverlapCircle(transform.position, radioGolpe, contactFilter, objetosDetectados);
 
 
@@ -34,14 +34,18 @@ public class RenAtaques : MonoBehaviour
         {
             if (c.gameObject.GetComponent<FormigaMusical>())
             {
-                Debug.Log(c.gameObject.tag);
                 c.gameObject.GetComponent<FormigaMusical>().DanioEnemigo(1008637680);
             }
             if (c.gameObject.GetComponent<OsamaBinFormigaMusical>())
             {
-                Debug.Log(c.gameObject.tag);
                 c.gameObject.GetComponent<OsamaBinFormigaMusical>().DanioEnemigo(1008637680);
             }
+            if (c.gameObject.GetComponent<ComidaMusical>())
+            {
+                Debug.Log(c.gameObject.tag);
+                c.gameObject.GetComponent<ComidaMusical>().Curar(20);
+            }
+
         }
         objetosDetectados.Clear();
 

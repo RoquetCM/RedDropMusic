@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GeneralMusical : MonoBehaviour
+{
+
+    public static GeneralMusical instance;
+
+    public static bool pararJuego;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+    public void SetPararJuego(bool w)
+    {
+
+        pararJuego = w;
+    }
+    public bool GetPararJuego()
+    {
+        return pararJuego;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+        pararJuego = false;  
+    }
+}
