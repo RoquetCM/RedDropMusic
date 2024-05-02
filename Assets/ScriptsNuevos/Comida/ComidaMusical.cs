@@ -13,7 +13,6 @@ public class ComidaMusical : Enemigo
     protected GameObject sangreMusicalClone;
     protected float movimientoOriginal;
 
-
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void Start()
@@ -71,7 +70,6 @@ public class ComidaMusical : Enemigo
             //sangreMusicalClone = (GameObject)Instantiate(sangreMusical, this.gameObject.transform.parent.transform.GetChild(0).gameObject.transform.position, Quaternion.identity);
             //Destroy(sangreMusicalClone.gameObject, 0.5f);
             movimiento = 0;
-            this.gameObject.GetComponent<Animator>().SetTrigger("muerte");
             Destroy(this.gameObject.GetComponent<BoxCollider2D>());
             Destroy(this.gameObject, 1f);
 

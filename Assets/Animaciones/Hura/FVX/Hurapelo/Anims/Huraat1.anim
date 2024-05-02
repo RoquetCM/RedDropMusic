@@ -22,9 +22,9 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -64809648, guid: c471163fbd8250a46aaf2618adc81518, type: 3}
-    - time: 0.083333336
+    - time: 0.25
       value: {fileID: 239533969, guid: c471163fbd8250a46aaf2618adc81518, type: 3}
-    - time: 0.16666667
+    - time: 0.41666666
       value: {fileID: 466000336, guid: c471163fbd8250a46aaf2618adc81518, type: 3}
     attribute: m_Sprite
     path: 
@@ -35,9 +35,9 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -2125716456, guid: 30cd83ce076badf4f90173eede951201, type: 3}
-    - time: 0.083333336
+    - time: 0.25
       value: {fileID: 2076978567, guid: 30cd83ce076badf4f90173eede951201, type: 3}
-    - time: 0.16666667
+    - time: 0.41666666
       value: {fileID: 1944654050, guid: 30cd83ce076badf4f90173eede951201, type: 3}
     attribute: m_Sprite
     path: Hurapelo
@@ -48,9 +48,9 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1939332838, guid: 1ce6420818569f342a7c05687f8faa12, type: 3}
-    - time: 0.083333336
+    - time: 0.25
       value: {fileID: -2136180051, guid: 76098dea956e36940941bdf2c63385c4, type: 3}
-    - time: 0.16666667
+    - time: 0.41666666
       value: {fileID: -376608224, guid: 76098dea956e36940941bdf2c63385c4, type: 3}
     attribute: m_Sprite
     path: HuraFVX
@@ -106,7 +106,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

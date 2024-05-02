@@ -22,6 +22,10 @@ TagManager:
   - Gato
   - Ren
   - FormigaMusical
+  - Puntuacion
+  - BarraFuria
+  - AuraFuria
+  - FuriaPadre
   layers:
   - Default
   - TransparentFX

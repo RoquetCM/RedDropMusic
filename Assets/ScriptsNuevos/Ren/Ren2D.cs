@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Ren2D : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Ren2D : MonoBehaviour
     [SerializeField]
     protected GameObject panelPausa;
     protected float vidaMaxima;
+
+    [SerializeField]
+    protected GameObject puntuacionUI;
 
     void Start()
     {
@@ -28,7 +32,9 @@ public class Ren2D : MonoBehaviour
     {
         Ataque();
         Pausa();
+       
     }
+    
     public void Pausa()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
