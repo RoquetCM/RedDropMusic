@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CreadorFormigasMusicales : MonoBehaviour
 {
@@ -11,19 +14,103 @@ public class CreadorFormigasMusicales : MonoBehaviour
     protected GameObject formigaClon;//que tiene que clonar
     [SerializeField]
     protected GameObject[] posiciones; //0 IZQUIERDA,1 ARRIBA,2 DERECHA.
+    [SerializeField]
+    protected string nombreFichero = "Cancion1.txt"; // Nombre del archivo que leerás
+    protected List<string> notasMusicales = new List<string>(); // Lista para almacenar las líneas del archivo
+    protected int contador = 0;
+    protected float tiempo = 0;
+    protected string[] partes;
+    [SerializeField]
+    protected GameObject contadorAyer;
+    protected int contadorCrono;
+    [SerializeField]
+    protected GameObject puntucaionUI;
 
     void Start()
     {
+       //puntucaionUI.SetActive(false);
+        contadorCrono = 3;
+        LectorFichero(nombreFichero);
+        InvokeRepeating("ComprobarNotasMusicales", 0.0f, 0.1f);
+        InvokeRepeating("Crono", 0.0f, 1f);
         
     }
+    public void ComprobarNotasMusicales()
+    {
+        if (GeneralMusical.instance.GetPararJuego()==false)
+        {
+            if (notasMusicales.Count > 0)
+            {
+                partes = notasMusicales[0].Split(";");
+                if (partes.Length > 1)
+                {
+                    partes[0] = partes[0].Replace("[", "");
+                    partes[0] = partes[0].Replace("]", "");
+                    if (tiempo > float.Parse(partes[0]))
+                    {
+                        if (partes[1] == "D")
+                        {
+                            CrearFormiga(0, 1, 4f);
+                        }
+                        if (partes[1] == "I")
+                        {
+                            CrearFormiga(2, 1, 4f);
+                        }
+                        if (partes[1] == "A")
+                        {
+                            CrearFormiga(1, 1, 4f);
+                        }
+                        notasMusicales.RemoveAt(0);
+                        if (notasMusicales.Count <= 0)
+                        {
+                            CancelInvoke("ComprobarNotasMusicales");
+                        }
+                    }
+                    tiempo += 0.1f;
+                    contador++;
+                }
+                else
+                {
+                    CancelInvoke("ComprobarNotasMusicales");
+                }
+            }
+            else
+            {
+                CancelInvoke("ComprobarNotasMusicales");
+            }
+        }
+    }
+    public void LectorFichero(string nombre)
+    {
+        string filePath = Path.Combine(Application.dataPath+ "/Resources/", nombre);
 
-   
+        if (File.Exists(filePath))
+        {
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    notasMusicales.Add(line); // Agrega cada línea a la lista
+                }
+            }
+
+            Debug.Log($"Archivo leído con éxito. Total de líneas: {notasMusicales.Count}");
+        }
+        else
+        {
+            Debug.LogError($"Archivo no encontrado: {filePath}");
+        }
+
+
+    }
+
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            CrearFormiga(0, 1,4f);
+            CrearFormiga(0, 1, 4f);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -35,28 +122,39 @@ public class CreadorFormigasMusicales : MonoBehaviour
         }
 
     }
-
-    public void CrearFormiga(int posicion,int cantidad,float desplazamiento)
+    
+    public void CrearFormiga(int posicion, int cantidad, float desplazamiento)
     {
-        for(int i=0; i < cantidad; i++)
+        
+        for (int i = 0; i < cantidad; i++)
         {
             if (posicion == 0)
             {
-                formigaClon = (GameObject)Instantiate(formiga, posiciones[posicion].gameObject.transform.GetChild(i).transform.position, Quaternion.identity);
-                formigaClon.GetComponent<FormigaCuajada>().SetMovimiento(desplazamiento);
+                formigaClon = (GameObject)Instantiate(formiga, posiciones[posicion].gameObject.transform.position, Quaternion.identity);
+                formigaClon.GetComponent<FormigaMusical>().SetMovimiento(desplazamiento);
             }
             if (posicion == 1)
             {
-                formigaClon = (GameObject)Instantiate(osamaBinFormiga, posiciones[posicion].gameObject.transform.GetChild(i).transform.position, Quaternion.identity);
-                formigaClon.GetComponent<OsamabinFormiga>().SetMovimiento(desplazamiento);
+                formigaClon = (GameObject)Instantiate(osamaBinFormiga, posiciones[posicion].gameObject.transform.position, Quaternion.identity);
+                formigaClon.GetComponent<OsamaBinFormigaMusical>().SetMovimiento(desplazamiento);
             }
             if (posicion == 2)
             {
-                formigaClon = (GameObject)Instantiate(formiga, posiciones[posicion].gameObject.transform.GetChild(i).transform.position, Quaternion.identity);
-                formigaClon.GetComponent<FormigaCuajada>().SetMovimiento(desplazamiento);
+                formigaClon = (GameObject)Instantiate(formiga, posiciones[posicion].gameObject.transform.position, Quaternion.identity);
+                formigaClon.GetComponent<FormigaMusical>().SetMovimiento(desplazamiento);
             }
-            
+
         }
-  
+
+    }
+    public void Crono()
+    {
+        contadorAyer.GetComponent<TMP_Text>().text = contadorCrono.ToString();
+        contadorCrono--;
+        if (contadorCrono < -1)
+        {
+            CancelInvoke("Crono");
+            contadorAyer.SetActive(false);
+        }
     }
 }

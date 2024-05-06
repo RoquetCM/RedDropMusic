@@ -19,6 +19,9 @@ public class Ren2D : MonoBehaviour
     [SerializeField]
     protected GameObject puntuacionUI;
 
+    [SerializeField]
+    protected GameObject sangreMusicalRen;
+    protected GameObject sangreMusicalCloneRen;
     void Start()
     {
         vidaMaxima = 100;
@@ -26,13 +29,29 @@ public class Ren2D : MonoBehaviour
         estoyMuerto = false;
         vida = vidaMaxima;
     }
-
+    public void Perfecto()
+    {
+        Invoke("Ocultar", 0.5f);
+    }
+    public void Ocultar()
+    {
+        
+        puntuacionUI.transform.GetChild(0).gameObject.SetActive(false);
+    }
 
     void Update()
     {
-        Ataque();
-        Pausa();
-       
+        if (estoyMuerto == false)
+        {
+            this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
+            this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
+            this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
+
+            Ataque();
+            Pausa();
+
+        }
+
     }
     
     public void Pausa()
@@ -53,7 +72,7 @@ public class Ren2D : MonoBehaviour
     }
     public void Ataque()
     {
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.E))
         {
             this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
@@ -90,6 +109,8 @@ public class Ren2D : MonoBehaviour
 
         if (estoyMuerto == false)
         {
+            sangreMusicalCloneRen = (GameObject)Instantiate(sangreMusicalRen, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(sangreMusicalCloneRen, 1.0f);
             vida = vida - hostia;
             barraDeVida.GetComponent<Animator>().SetTrigger("EfectoPupa");
             this.gameObject.transform.GetComponent<Animator>().SetTrigger("golpe");
@@ -97,10 +118,11 @@ public class Ren2D : MonoBehaviour
             barraDeVida.GetComponent<Image>().fillAmount = vida / 100;
             if (vida < 0)
             {
+
                 GeneralMusical.instance.SetPararJuego(true);
                 this.gameObject.GetComponent<Animator>().SetTrigger("morir");
                 estoyMuerto = true;
-
+                Invoke("BloquearRen",0.5f);
                 this.gameObject.GetComponent<Ren2D>().enabled = false;
                 camvaGameOver.SetActive(true);
 
@@ -121,5 +143,11 @@ public class Ren2D : MonoBehaviour
         }
         barraDeVida.GetComponent<Animator>().SetTrigger("RecargaGato");
         barraDeVida.GetComponent<Image>().fillAmount = vida / 100;
+    }
+    public void BloquearRen()
+    {
+        
+        this.gameObject.GetComponent<Animator>().enabled = false;
+
     }
 }

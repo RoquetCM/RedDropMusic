@@ -339,4 +339,5 @@ MonoBehaviour:
   rango: 0
   movimiento: 1
   posPlayer: {x: 0, y: 0, z: 0}
-  sangreMusical: {fileID: 1582624868315116087, guid: e36503da637b82d469f8e62eab0bb96a, type: 3}
+  sangreMusical: {fileID: 6456982019659842248, guid: 3ec12167a88f6c447b2d1da780e3d9ae, type: 3}
+  curas: []

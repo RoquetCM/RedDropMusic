@@ -1,8 +1,10 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class FormigaMusical : Enemigo
 {
@@ -16,6 +18,9 @@ public class FormigaMusical : Enemigo
     protected float movimientoOriginal;
     protected GameObject puntuacionUI;
     protected GameObject furiaPadre;
+    [SerializeField]
+    protected Sprite[] curas;
+    
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -26,6 +31,7 @@ public class FormigaMusical : Enemigo
         puntuacionUI = (GameObject)GameObject.FindGameObjectWithTag("Puntuacion");
         furiaPadre = (GameObject)GameObject.FindGameObjectWithTag("FuriaPadre");
         this.GetComponent<Animator>().SetBool("corriendo", true);
+        posPlayer = ren.gameObject.transform.position;
     }
 
 
@@ -41,7 +47,7 @@ public class FormigaMusical : Enemigo
             movimiento = movimientoOriginal;
             this.GetComponent<Animator>().SetBool("corriendo", true);
         }
-        posPlayer = ren.gameObject.transform.position;
+        
         this.transform.position = Vector3.MoveTowards(this.transform.position, posPlayer, movimiento * Time.deltaTime);
 
         if (this.transform.position.x > ren.transform.position.x)
@@ -60,13 +66,13 @@ public class FormigaMusical : Enemigo
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == ("Ren"))
-        {
+        {   
             GeneralMusical.instance.SetFuria(0);
             furiaPadre.GetComponent<Animator>().SetTrigger("golpe");
             furiaPadre.transform.GetChild(0).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
             furiaPadre.transform.GetChild(2).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
 
-            other.gameObject.GetComponent<Ren2D>().Hostion(20);
+            other.gameObject.GetComponent<Ren2D>().Hostion(50);
            Destroy(this.gameObject);
             
         }
@@ -81,15 +87,34 @@ public class FormigaMusical : Enemigo
 
         if (vidaEnemigo <= 0)
         {
-            puntuacionUI.GetComponent<Animator>().SetTrigger("golpe");
+            movimiento = 0;
+            posPlayer = this.gameObject.transform.position;
+
+            sangreMusicalClone = (GameObject)Instantiate(sangreMusical, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(sangreMusicalClone, 1.0f);
+            if (puntuacionUI!=null)
+            {
+                puntuacionUI.SetActive(true);
+                puntuacionUI.GetComponent<Animator>().SetTrigger("golpe");
+            }
             Invoke("Efecto", 0.5f);
             GeneralMusical.instance.SetFuria(GeneralMusical.instance.GetFuria() + GeneralMusical.instance.GetIncrementoFuria());
             furiaPadre.GetComponent<Animator>().SetTrigger("golpe");
             furiaPadre.transform.GetChild(0).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
             furiaPadre.transform.GetChild(2).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
-            GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + GeneralMusical.instance.GetPuntuacionGolpe());
+            distancia = Vector2.Distance(this.gameObject.transform.position, ren.gameObject.transform.position);
+            if (distancia >= 1.3 && distancia <= 1.5)
+            {
+                GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionGolpe()*GeneralMusical.instance.GetMultiplicador()));
+                puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                ren.GetComponent<Ren2D>().Perfecto();
+
+            }
+            else
+            {
+                GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + GeneralMusical.instance.GetPuntuacionGolpe());
+            }
             puntuacionUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetPuntuacion().ToString();
-            movimiento = 0;
             this.gameObject.GetComponent<Animator>().SetTrigger("muerte");
             Destroy(this.gameObject.GetComponent<BoxCollider2D>());
             Destroy(this.gameObject, 1f);
@@ -100,5 +125,10 @@ public class FormigaMusical : Enemigo
     {
         furiaPadre.GetComponent<Animator>().ResetTrigger("golpe");
         puntuacionUI.GetComponent<Animator>().ResetTrigger("golpe");
+    }
+    public void SetMovimiento(float v)
+    {
+        this.movimientoOriginal = v;
+        this.movimiento = v;
     }
 }
