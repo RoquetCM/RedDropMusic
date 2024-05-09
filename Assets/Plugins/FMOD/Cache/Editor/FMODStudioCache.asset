@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9164454934619568007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_zumbido_avispa
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_zumbido_avispa
+  Guid:
+    Data1: -960167393
+    Data2: 1150898557
+    Data3: 1275563449
+    Data4: 799948824
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3470
 --- !u!114 &-9108971602342693365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,14 +46,41 @@ MonoBehaviour:
     Data3: 1333939352
     Data4: -1400199181
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4360
+--- !u!114 &-8926021550559771561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_alcantarilla
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_alcantarilla
+  Guid:
+    Data1: -1104837260
+    Data2: 1311757767
+    Data3: 375705732
+    Data4: -122887843
+  Banks:
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 3900
 --- !u!114 &-8271187495654811461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +100,7 @@ MonoBehaviour:
     Data3: 482149256
     Data4: -978578671
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -73,14 +127,14 @@ MonoBehaviour:
     Data3: -1904605813
     Data4: 1877463229
   Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
+  - {fileID: 7762423090666992138}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 64000
 --- !u!114 &-7432698534030420386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +159,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-6629782425559597148
+--- !u!114 &-7004194264328602168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,19 +168,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_blood_main
   m_EditorClassIdentifier: 
-  Path: fmod_audio_system/Reddrop Gameaudio System V2/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638464493560000000
-  FileSizes:
-  - Name: Desktop
-    Value: 2326
-  - Name: Switch
-    Value: 2326
-  Exists: 1
+  Path: event:/SFX/Action/sfx_blood_main
+  Guid:
+    Data1: 569588235
+    Data2: 1124736380
+    Data3: 2055195304
+    Data4: 165988295
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2031
 --- !u!114 &-6600708966463636842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,14 +205,14 @@ MonoBehaviour:
     Data3: -996314443
     Data4: -372046675
   Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
+  - {fileID: 7762423090666992138}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 208000
 --- !u!114 &-6552208002146558817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,14 +232,14 @@ MonoBehaviour:
     Data3: 991806099
     Data4: 1987868801
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1730
+  Length: 1180
 --- !u!114 &-6340012571007757628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,14 +259,14 @@ MonoBehaviour:
     Data3: 523520641
     Data4: 383689557
   Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
+  - {fileID: 7762423090666992138}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 30000
 --- !u!114 &-5816475569434098211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +286,7 @@ MonoBehaviour:
     Data3: 822886836
     Data4: 1255338465
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -236,6 +295,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 490
+--- !u!114 &-5204166854080573871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_muerte_hormiga_voladora
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_muerte_hormiga_voladora
+  Guid:
+    Data1: -1841237894
+    Data2: 1332500258
+    Data3: -156713841
+    Data4: 1810006795
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 900
 --- !u!114 &-5000346495784807702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +341,7 @@ MonoBehaviour:
     Data3: 481376693
     Data4: -1340520240
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -263,28 +349,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 725
---- !u!114 &-3928516186719404951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: fmod_audio_system/Reddrop Gameaudio System V2/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638464493560000000
-  FileSizes:
-  - Name: Desktop
-    Value: 3960576
-  - Name: Switch
-    Value: 2319104
-  Exists: 1
 --- !u!114 &-3909816245758913111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +368,7 @@ MonoBehaviour:
     Data3: -1088148039
     Data4: 1294410634
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -331,14 +395,14 @@ MonoBehaviour:
     Data3: 2037566362
     Data4: -1894004145
   Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
+  - {fileID: 7762423090666992138}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 64329
 --- !u!114 &-3717148561906381501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,14 +422,14 @@ MonoBehaviour:
     Data3: -2090707833
     Data4: 474460252
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 72909
+  Length: 78426
 --- !u!114 &-3674468402441583332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +449,7 @@ MonoBehaviour:
     Data3: -542796129
     Data4: -1476866514
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -393,6 +457,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 720
+--- !u!114 &-3338383731403541045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.assets.bank
+  m_EditorClassIdentifier: 
+  Path: ../Reddrop Gameaudio System V7/Build/Desktop/Master.assets.bank
+  Name: Master.assets
+  StudioPath: bank:/Master.assets
+  lastModified: 638505897097281247
+  FileSizes:
+  - Name: Desktop
+    Value: 3487200
+  Exists: 1
 --- !u!114 &-3198024866372209197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,14 +496,14 @@ MonoBehaviour:
     Data3: 1538929284
     Data4: -201826165
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 50
+  Length: 371
 --- !u!114 &-2461387202404961636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +523,7 @@ MonoBehaviour:
     Data3: -1732340602
     Data4: 1308885827
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -466,14 +550,14 @@ MonoBehaviour:
     Data3: -1001113464
     Data4: -2039713967
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1874
+  Length: 487
 --- !u!114 &-1196961813938700235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +577,7 @@ MonoBehaviour:
     Data3: 1647264183
     Data4: -1252703534
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -520,14 +604,14 @@ MonoBehaviour:
     Data3: 151686543
     Data4: -1094710324
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 125
 --- !u!114 &-293065810733476498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,14 +631,14 @@ MonoBehaviour:
     Data3: -545193065
     Data4: 455290105
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 480
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,8 +652,10 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -6629782425559597148}
-  - {fileID: -3928516186719404951}
+  - {fileID: 3948995247171183309}
+  - {fileID: -3338383731403541045}
+  - {fileID: 7762423090666992138}
+  - {fileID: 2583567633647363135}
   EditorEvents:
   - {fileID: -5000346495784807702}
   - {fileID: -3674468402441583332}
@@ -598,18 +684,27 @@ MonoBehaviour:
   - {fileID: 5379285017459512552}
   - {fileID: -3909816245758913111}
   - {fileID: -6340012571007757628}
-  - {fileID: 2811215981896424607}
   - {fileID: -8271187495654811461}
   - {fileID: -6600708966463636842}
   - {fileID: -7601360215489722306}
   - {fileID: 4232158078104427315}
   - {fileID: -5816475569434098211}
+  - {fileID: -7004194264328602168}
+  - {fileID: -9164454934619568007}
+  - {fileID: 3586091355306081346}
+  - {fileID: 5756895801457342560}
+  - {fileID: 1539271320860825581}
+  - {fileID: -8926021550559771561}
+  - {fileID: -5204166854080573871}
+  - {fileID: 389367401852820332}
+  - {fileID: 1741880097863137877}
+  - {fileID: 1298789067290012083}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   StringsBanks:
-  - {fileID: -6629782425559597148}
-  cacheTime: 638464493560000000
+  - {fileID: 3948995247171183309}
+  cacheTime: 638505897130941713
   cacheVersion: 131617
 --- !u!114 &146280320907430035
 MonoBehaviour:
@@ -630,14 +725,41 @@ MonoBehaviour:
     Data3: 253465735
     Data4: -596271824
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &389367401852820332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_blood_boss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_blood_boss
+  Guid:
+    Data1: 1422205398
+    Data2: 1202677897
+    Data3: 1011972255
+    Data4: 658393863
+  Banks:
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2031
 --- !u!114 &715835637904757560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,7 +803,7 @@ MonoBehaviour:
     Data3: -1599556200
     Data4: 1778656548
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -689,6 +811,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 410
+--- !u!114 &1298789067290012083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_arbol_moviendose
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_arbol_moviendose
+  Guid:
+    Data1: 1947367161
+    Data2: 1122604453
+    Data3: 503942285
+    Data4: -121608931
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 874
 --- !u!114 &1391988437229251942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,14 +857,69 @@ MonoBehaviour:
     Data3: 1120336522
     Data4: -629522672
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4101361018646347877}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 750
+--- !u!114 &1539271320860825581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_brokebarricade2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_brokebarricade2
+  Guid:
+    Data1: -307505351
+    Data2: 1251295619
+    Data3: -1423252803
+    Data4: 1516286797
+  Banks:
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 41
+  Length: 2181
+--- !u!114 &1741880097863137877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_muerte
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_muerte
+  Guid:
+    Data1: 2000250850
+    Data2: 1328287155
+    Data3: 685767810
+    Data4: 619936735
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1833703768512449663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,15 +939,15 @@ MonoBehaviour:
     Data3: -369587059
     Data4: 1093525027
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &2811215981896424607
+  Length: 14000
+--- !u!114 &2583567633647363135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -752,24 +956,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Action/sfx_blood
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.streams.bank
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Action/sfx_blood
-  Guid:
-    Data1: 1422205398
-    Data2: 1202677897
-    Data3: 1011972255
-    Data4: 658393863
-  Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3750
+  Path: ../Reddrop Gameaudio System V7/Build/Desktop/Master.streams.bank
+  Name: Master.streams
+  StudioPath: bank:/Master.streams
+  lastModified: 638505897130931646
+  FileSizes:
+  - Name: Desktop
+    Value: 27735008
+  Exists: 1
 --- !u!114 &2980821595240024244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,6 +991,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3586091355306081346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_fruta_cayendose
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_fruta_cayendose
+  Guid:
+    Data1: 202809137
+    Data2: 1336931809
+    Data3: -916930161
+    Data4: -1101541627
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 127
 --- !u!114 &3913145664395966163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,7 +1037,7 @@ MonoBehaviour:
     Data3: 901501865
     Data4: 775862789
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -821,6 +1045,52 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &3948995247171183309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../Reddrop Gameaudio System V7/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638505897130941713
+  FileSizes:
+  - Name: Desktop
+    Value: 2888
+  - Name: Switch
+    Value: 2888
+  Exists: 1
+--- !u!114 &4101361018646347877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/sfx_pasosboss/LEVEL
+  m_EditorClassIdentifier: 
+  Name: LEVEL
+  StudioPath: 
+  Min: 1
+  Max: 3
+  Default: 1
+  ID:
+    data1: 3191714903
+    data2: 3654610122
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &4232158078104427315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,7 +1110,7 @@ MonoBehaviour:
     Data3: -1434583133
     Data4: -389396676
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -867,14 +1137,14 @@ MonoBehaviour:
     Data3: -965055824
     Data4: 872756118
   Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
+  - {fileID: 7762423090666992138}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 155200
 --- !u!114 &5379285017459512552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,14 +1164,14 @@ MonoBehaviour:
     Data3: 296750764
     Data4: -25053420
   Banks:
-  - {fileID: -3928516186719404951}
-  IsStream: 0
+  - {fileID: 7762423090666992138}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 31232
 --- !u!114 &5409292242499213484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,14 +1191,14 @@ MonoBehaviour:
     Data3: -2087316825
     Data4: 1216542388
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 450
 --- !u!114 &5644840210376945020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,14 +1218,41 @@ MonoBehaviour:
     Data3: -840127863
     Data4: -1148044681
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1125
+--- !u!114 &5756895801457342560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Action/sfx_blood_minion
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Action/sfx_blood_minion
+  Guid:
+    Data1: -1366403015
+    Data2: 1230248756
+    Data3: -348009546
+    Data4: -650517164
+  Banks:
+  - {fileID: 7762423090666992138}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2031
 --- !u!114 &6160144248955446868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +1272,7 @@ MonoBehaviour:
     Data3: -240529264
     Data4: 808467557
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1002,7 +1299,7 @@ MonoBehaviour:
     Data3: -585421662
     Data4: 1756547794
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1029,7 +1326,7 @@ MonoBehaviour:
     Data3: 713039788
     Data4: -1226622292
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1038,6 +1335,28 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2048
+--- !u!114 &7762423090666992138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Reddrop Gameaudio System V7/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638505897092385808
+  FileSizes:
+  - Name: Desktop
+    Value: 79964
+  - Name: Switch
+    Value: 56988992
+  Exists: 1
 --- !u!114 &8074530623913023911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,7 +1376,7 @@ MonoBehaviour:
     Data3: 1322688439
     Data4: -985579245
   Banks:
-  - {fileID: -3928516186719404951}
+  - {fileID: 7762423090666992138}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

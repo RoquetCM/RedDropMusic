@@ -7,12 +7,17 @@ public class GeneralMusical : MonoBehaviour
 
     public static GeneralMusical instance;
     public static bool pararJuego;
-    public static int puntuacion;
-    public static int puntuacionGolpe;
-    public static int multiplicador;
+    public static float puntuacion;
+    public static float puntuacionGolpe;
+    public static float multiplicador;
 
     public static float furia;
     public static float incrementoFuria;
+    public static float furiaMaxima;
+    public static bool furiaActivada;
+    public static float puntuacionFuria;
+    public static GameObject puntuacionUIGeneral;
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void SetPararJuego(bool w)
@@ -24,30 +29,58 @@ public class GeneralMusical : MonoBehaviour
     {
         return pararJuego;
     }
-    public void SetPuntuacion(int t)
+    public void SetPuntuacionUIGeneral(GameObject m)
+    {
+
+        puntuacionUIGeneral = m;
+    }
+    public GameObject GetPuntuacionUIGeneral()
+    {
+        return puntuacionUIGeneral;
+    }
+    public void SetFuriaActivada(bool h)
+    {
+
+        furiaActivada = h;
+    }
+    public bool GetFuriaActivada()
+    {
+        return furiaActivada;
+    }
+    public void SetPuntuacion(float t)
     {
 
         puntuacion = t;
     }
-    public int GetPuntuacion()
+    public float GetPuntuacion()
     {
         return puntuacion;
+    }public void SetPuntuacionFuria(float a)
+    {
+
+        puntuacionFuria = a;
     }
-    public void SetPuntuacionGolpe(int y)
+    public float GetPuntuacionFuria()
+    {
+        return puntuacionFuria;
+    }
+
+
+    public void SetPuntuacionGolpe(float y)
     {
 
         puntuacionGolpe = y;
     }
-    public int GetPuntuacionGolpe()
+    public float GetPuntuacionGolpe()
     {
         return puntuacionGolpe;
     }
-    public void SetMultiplicador(int p)
+    public void SetMultiplicador(float p)
     {
 
         multiplicador = p;
     }
-    public int GetMultiplicador()
+    public float GetMultiplicador()
     {
         return multiplicador;
     }
@@ -69,6 +102,15 @@ public class GeneralMusical : MonoBehaviour
     {
         return incrementoFuria;
     }
+    public void SetFuriaMaxima(float p)
+    {
+
+        furiaMaxima = p;
+    }
+    public float GetFuriaMaxima()
+    {
+        return furiaMaxima;
+    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void Awake()
     {
@@ -86,5 +128,7 @@ public class GeneralMusical : MonoBehaviour
         puntuacion = 0;
         puntuacionGolpe = 100;
         multiplicador = 2;
+        furiaMaxima = 1;
+        puntuacionFuria = 200;
     }
 }

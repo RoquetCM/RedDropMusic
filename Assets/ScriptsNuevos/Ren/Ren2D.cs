@@ -22,8 +22,15 @@ public class Ren2D : MonoBehaviour
     [SerializeField]
     protected GameObject sangreMusicalRen;
     protected GameObject sangreMusicalCloneRen;
+
+    [SerializeField]
+    protected Color normal;
+    [SerializeField]
+    protected Color enfadado;
+
     void Start()
     {
+        GeneralMusical.instance.SetPuntuacionUIGeneral(puntuacionUI);
         vidaMaxima = 100;
         barraDeVida.GetComponent<Image>().fillAmount = vidaMaxima / 100;
         estoyMuerto = false;
@@ -37,6 +44,15 @@ public class Ren2D : MonoBehaviour
     {
         
         puntuacionUI.transform.GetChild(0).gameObject.SetActive(false);
+    }
+    public void ActivarFuria()
+    {
+        this.gameObject.transform.GetComponent<Animator>().SetTrigger("enfadado");
+        this.gameObject.GetComponent<SpriteRenderer>().color= enfadado;
+    }
+    public void DesactivarFuria()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = normal;
     }
 
     void Update()

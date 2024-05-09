@@ -34,12 +34,12 @@ public class Metronometro : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("J");
-            resultado = resultado + "[" + milisegundo + "];D\n";
+            resultado = resultado + "[" + milisegundo + "];D;N\n";
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("F");
-            resultado = resultado + "[" + milisegundo + "];I\n";
+            resultado = resultado + "[" + milisegundo + "];I;N\n";
         }
         if (Input.GetKeyDown(KeyCode.I))
         {

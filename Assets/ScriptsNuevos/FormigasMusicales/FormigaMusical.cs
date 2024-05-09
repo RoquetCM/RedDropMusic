@@ -28,7 +28,7 @@ public class FormigaMusical : Enemigo
     {
         movimientoOriginal = movimiento;
         ren = (GameObject)GameObject.FindGameObjectWithTag("Ren");
-        puntuacionUI = (GameObject)GameObject.FindGameObjectWithTag("Puntuacion");
+        puntuacionUI = GeneralMusical.instance.GetPuntuacionUIGeneral();
         furiaPadre = (GameObject)GameObject.FindGameObjectWithTag("FuriaPadre");
         this.GetComponent<Animator>().SetBool("corriendo", true);
         posPlayer = ren.gameObject.transform.position;
@@ -71,8 +71,9 @@ public class FormigaMusical : Enemigo
             furiaPadre.GetComponent<Animator>().SetTrigger("golpe");
             furiaPadre.transform.GetChild(0).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
             furiaPadre.transform.GetChild(2).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
-
-            other.gameObject.GetComponent<Ren2D>().Hostion(50);
+            GeneralMusical.instance.SetFuriaActivada(false);
+            ren.GetComponent<Ren2D>().DesactivarFuria();
+            other.gameObject.GetComponent<Ren2D>().Hostion(20);
            Destroy(this.gameObject);
             
         }
@@ -102,17 +103,39 @@ public class FormigaMusical : Enemigo
             furiaPadre.GetComponent<Animator>().SetTrigger("golpe");
             furiaPadre.transform.GetChild(0).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
             furiaPadre.transform.GetChild(2).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
-            distancia = Vector2.Distance(this.gameObject.transform.position, ren.gameObject.transform.position);
-            if (distancia >= 1.3 && distancia <= 1.5)
+            if (GeneralMusical.instance.GetFuria() >= GeneralMusical.instance.GetFuriaMaxima())
             {
-                GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionGolpe()*GeneralMusical.instance.GetMultiplicador()));
+                if (GeneralMusical.instance.GetFuriaActivada()==false)
+                {
+                    ren.GetComponent<Ren2D>().ActivarFuria();
+                    GeneralMusical.instance.SetFuriaActivada(true);
+                }
+            }
+            distancia = Vector2.Distance(this.gameObject.transform.position, ren.gameObject.transform.position);
+            if (distancia >= 1.3 && distancia <= 2.5)
+            {
+                if (GeneralMusical.instance.GetFuriaActivada() == false)
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionGolpe() * GeneralMusical.instance.GetMultiplicador()));
+                }
+                else
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria() * GeneralMusical.instance.GetMultiplicador()));
+                }
                 puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 ren.GetComponent<Ren2D>().Perfecto();
 
             }
             else
             {
-                GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + GeneralMusical.instance.GetPuntuacionGolpe());
+                if (GeneralMusical.instance.GetFuriaActivada() == false)
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionGolpe()));
+                }
+                else
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria()));
+                }
             }
             puntuacionUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetPuntuacion().ToString();
             this.gameObject.GetComponent<Animator>().SetTrigger("muerte");

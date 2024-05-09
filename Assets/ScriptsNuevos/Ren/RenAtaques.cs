@@ -45,7 +45,10 @@ public class RenAtaques : MonoBehaviour
                 Debug.Log(c.gameObject.tag);
                 c.gameObject.GetComponent<ComidaMusical>().Curar(20);
             }
-
+            if (c.gameObject.GetComponent<FormigaComilona>())
+            {
+                c.gameObject.GetComponent<FormigaComilona>().DanioEnemigo(1008637680);
+            }
         }
         objetosDetectados.Clear();
 
