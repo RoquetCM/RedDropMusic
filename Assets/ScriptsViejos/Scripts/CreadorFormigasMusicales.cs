@@ -4,9 +4,22 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class CreadorFormigasMusicales : MonoBehaviour
 {
+    [SerializeField]
+    protected GameObject efectoCambioEscenario1;
+    [SerializeField]
+    protected GameObject panelVictoria;
+    [SerializeField]
+    protected GameObject efectoCambioEscenario2;
+    [SerializeField]
+    protected GameObject camara;
+    [SerializeField]
+    protected float tiempoCambioEscenario1;
+    [SerializeField]
+    protected float tiempoCambioEscenario2;
     [SerializeField]
     protected GameObject formigaNormal;//El objeto de formiga
     protected GameObject formigaCreada;
@@ -32,9 +45,11 @@ public class CreadorFormigasMusicales : MonoBehaviour
     protected GameObject musica;
     [SerializeField]
     protected GameObject teclasUI;
+    protected float tiempoMusica;
 
     void Start()
     {
+        tiempoMusica = 0;
        puntucaionUI.SetActive(false);
         contadorCrono = 3;
         LectorFichero(nombreFichero);
@@ -50,6 +65,28 @@ public class CreadorFormigasMusicales : MonoBehaviour
     {
         if (GeneralMusical.instance.GetPararJuego()==false)
         {
+            tiempoMusica = tiempoMusica + 0.1f;
+            if (tiempoMusica >= tiempoCambioEscenario1 && tiempoMusica< tiempoCambioEscenario2)
+            {
+                if (efectoCambioEscenario1 != null)
+                {
+                    efectoCambioEscenario1.SetActive(true);
+                    Destroy(efectoCambioEscenario1.gameObject, 0.4f);
+                }
+                camara.transform.GetChild(0).gameObject.SetActive(false);
+                camara.transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else if (tiempoMusica >= tiempoCambioEscenario2)
+            {
+                if (efectoCambioEscenario2 != null)
+                {
+                    efectoCambioEscenario2.SetActive(true);
+                    Destroy(efectoCambioEscenario2.gameObject, 0.4f);
+                }
+                camara.transform.GetChild(1).gameObject.SetActive(false);
+                camara.transform.GetChild(2).gameObject.SetActive(true);
+            }
+
             if (notasMusicales.Count > 0)
             {
                 partes = notasMusicales[0].Split(";");
@@ -58,7 +95,7 @@ public class CreadorFormigasMusicales : MonoBehaviour
                     partes[0] = partes[0].Replace("[", "");
                     partes[0] = partes[0].Replace("]", "");
                     
-                    if (tiempo > float.Parse(partes[0]))//- 2.199999f
+                    if (tiempo > float.Parse(partes[0]) - 2.7f)//- 2.199999f
                     {
                         if (partes[1] == "D")
                         {
@@ -75,6 +112,7 @@ public class CreadorFormigasMusicales : MonoBehaviour
                         notasMusicales.RemoveAt(0);
                         if (notasMusicales.Count <= 0)
                         {
+                            Invoke("ActivarPenlVictori", 6);
                             CancelInvoke("ComprobarNotasMusicales");
                         }
                     }
@@ -83,14 +121,20 @@ public class CreadorFormigasMusicales : MonoBehaviour
                 }
                 else
                 {
+                    //panelVictoria.SetActive(true);
                     CancelInvoke("ComprobarNotasMusicales");
                 }
             }
             else
             {
+                //panelVictoria.SetActive(true);
                 CancelInvoke("ComprobarNotasMusicales");
             }
         }
+    }
+    public void ActivarPenlVictori()
+    {
+        panelVictoria.SetActive(true);
     }
     public void LectorFichero(string nombre)
     {

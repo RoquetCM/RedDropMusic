@@ -17,9 +17,18 @@ public class GeneralMusical : MonoBehaviour
     public static bool furiaActivada;
     public static float puntuacionFuria;
     public static GameObject puntuacionUIGeneral;
+    public static bool ataqueActivado;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void SetAtaqueActivado(bool p)
+    {
 
+        ataqueActivado = p;
+    }
+    public bool GetAtaqueActivado()
+    {
+        return ataqueActivado;
+    }
     public void SetPararJuego(bool w)
     {
 
@@ -123,7 +132,7 @@ public class GeneralMusical : MonoBehaviour
             instance = this;
         }
         furia = 0;
-        incrementoFuria = 0.25f;
+        incrementoFuria = 0.05f;
         pararJuego = false;
         puntuacion = 0;
         puntuacionGolpe = 100;

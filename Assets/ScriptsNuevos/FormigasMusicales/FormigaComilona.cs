@@ -117,7 +117,7 @@ public class FormigaComilona : Enemigo
                 }
             }
             distancia = Vector2.Distance(this.gameObject.transform.position, ren.gameObject.transform.position);
-            if (distancia >= 1.3 && distancia <= 2.5)
+            if (distancia >= 1.3 && distancia <= 2f)
             {
                 if (GeneralMusical.instance.GetFuriaActivada() == false)
                 {
