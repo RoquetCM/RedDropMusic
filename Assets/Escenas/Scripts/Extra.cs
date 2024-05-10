@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Fungus;
+
 
 public class Extra : MonoBehaviour
 {
@@ -18,21 +18,5 @@ public class Extra : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Extra")
-        {
-            Fungus.Flowchart.BroadcastFungusMessage("Extra");
-        }
-        else if (other.gameObject.tag == "Fase1")
-        {
-            Fungus.Flowchart.BroadcastFungusMessage("Fase1");
-        }
-        else if (other.gameObject.tag == "Fase2")
-        {
-            Fungus.Flowchart.BroadcastFungusMessage("Fase2");
-        }
-        else if (other.gameObject.tag == "Fase3")
-        {
-            Fungus.Flowchart.BroadcastFungusMessage("Fase3");
-        }
     }
 }

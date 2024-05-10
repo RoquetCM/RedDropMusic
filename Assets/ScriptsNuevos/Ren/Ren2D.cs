@@ -78,11 +78,13 @@ public class Ren2D : MonoBehaviour
             if (panelPausa.activeSelf==false) 
             {
                 GeneralMusical.instance.SetPararJuego(true);
+                this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PausarAudio(true);
                 panelPausa.SetActive(true);
             }
             else
             {
                 GeneralMusical.instance.SetPararJuego(false);
+                this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PausarAudio(false);
                 panelPausa.SetActive(false);
             }
         }

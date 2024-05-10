@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using static UnityEditor.Profiling.RawFrameDataView;
 
 public class SonidoAtaques : MonoBehaviour
 {
@@ -18,17 +17,31 @@ public class SonidoAtaques : MonoBehaviour
     public string fmodEventK;
     [FMODUnity.EventRef]
     public string fmodEventE;
+    [FMODUnity.EventRef]
+    public string fmodEventM;
+    [FMODUnity.EventRef]
+    public string fmodEventN;
 
-    FMOD.Studio.EventInstance eventoFMOD;
+    private FMOD.Studio.EventInstance eventoFMODD;
+    private FMOD.Studio.EventInstance eventoFMODF;
+    private FMOD.Studio.EventInstance eventoFMODI;
+    private FMOD.Studio.EventInstance eventoFMODJ;
+    private FMOD.Studio.EventInstance eventoFMODK;
+    private FMOD.Studio.EventInstance eventoFMODE;
+    private FMOD.Studio.EventInstance eventoFMODN;
+    private FMOD.Studio.EventInstance eventoFMODM;
+    bool reproduciendo = false;
 
     void Start()
     {
-        eventoFMOD = FMODUnity.RuntimeManager.CreateInstance(fmodEventD);
-        eventoFMOD = FMODUnity.RuntimeManager.CreateInstance(fmodEventF);
-        eventoFMOD = FMODUnity.RuntimeManager.CreateInstance(fmodEventI);
-        eventoFMOD = FMODUnity.RuntimeManager.CreateInstance(fmodEventJ);
-        eventoFMOD = FMODUnity.RuntimeManager.CreateInstance(fmodEventK);
-        eventoFMOD = FMODUnity.RuntimeManager.CreateInstance(fmodEventE);
+        eventoFMODD = FMODUnity.RuntimeManager.CreateInstance(fmodEventD);
+        eventoFMODF = FMODUnity.RuntimeManager.CreateInstance(fmodEventF);
+        eventoFMODI = FMODUnity.RuntimeManager.CreateInstance(fmodEventI);
+        eventoFMODJ = FMODUnity.RuntimeManager.CreateInstance(fmodEventJ);
+        eventoFMODK = FMODUnity.RuntimeManager.CreateInstance(fmodEventK);
+        eventoFMODE = FMODUnity.RuntimeManager.CreateInstance(fmodEventE);
+        eventoFMODE = FMODUnity.RuntimeManager.CreateInstance(fmodEventN);
+        eventoFMODM = FMODUnity.RuntimeManager.CreateInstance(fmodEventM);
     }
 
     // Update is called once per frame
@@ -36,31 +49,64 @@ public class SonidoAtaques : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            eventoFMOD.start();
+            eventoFMODD.start();
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            eventoFMOD.start();
+            eventoFMODF.start();
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            eventoFMOD.start();
+            eventoFMODI.start();
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            eventoFMOD.start();
+            eventoFMODJ.start();
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            eventoFMOD.start();
+            eventoFMODK.start();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            eventoFMOD.start();
+            eventoFMODE.start();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            eventoFMODN.start();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!reproduciendo)
+            {
+                eventoFMODM.start();
+                reproduciendo = true;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            reproduciendo = !reproduciendo;
+
+            if (reproduciendo)
+            {
+                eventoFMODM.setPaused(false);
+            }
+            else
+            {
+                eventoFMODM.setPaused(true);
+            }
         }
     }
     void OnDestroy()
     {
-        eventoFMOD.release();
+        eventoFMODD.release();
+        eventoFMODF.release();
+        eventoFMODI.release();
+        eventoFMODJ.release();
+        eventoFMODK.release();
+        eventoFMODE.release();
+        eventoFMODN.release();
+        eventoFMODM.release();
     }
 }

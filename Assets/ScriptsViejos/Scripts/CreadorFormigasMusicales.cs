@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using FMODUnity;
+using System.Diagnostics.Tracing;
 
 public class CreadorFormigasMusicales : MonoBehaviour
 {
@@ -47,8 +49,25 @@ public class CreadorFormigasMusicales : MonoBehaviour
     protected GameObject teclasUI;
     protected float tiempoMusica;
 
+    [FMODUnity.EventRef]
+    public string fmodEventM;
+    private FMOD.Studio.EventInstance eventoFMODM;
+
+    [FMODUnity.EventRef]
+    public string fmodEventN;
+    private FMOD.Studio.EventInstance eventoFMODN;
+
+    [FMODUnity.EventRef]
+    public string fmodEventL;
+    private FMOD.Studio.EventInstance eventoFMODL;
+
     void Start()
     {
+
+        eventoFMODM = FMODUnity.RuntimeManager.CreateInstance(fmodEventM);
+        eventoFMODN = FMODUnity.RuntimeManager.CreateInstance(fmodEventN);
+        eventoFMODL = FMODUnity.RuntimeManager.CreateInstance(fmodEventL);
+
         tiempoMusica = 0;
        puntucaionUI.SetActive(false);
         contadorCrono = 3;
@@ -218,15 +237,26 @@ public class CreadorFormigasMusicales : MonoBehaviour
     {
         contadorAyer.GetComponent<TMP_Text>().text = contadorCrono.ToString();
         contadorCrono--;
+       
         if (contadorCrono < -1)
         {
+            eventoFMODL.start();
             Invoke("ActivarMusica", 0.20f);
             CancelInvoke("Crono");
             contadorAyer.SetActive(false);
         }
+        else
+        {
+            eventoFMODN.start();
+        }
     }
     public void ActivarMusica()
     {
-        musica.SetActive(true);
+        //musica.SetActive(true);
+        eventoFMODM.start();
+    }
+    public void PausarAudio(bool p)
+    {
+        eventoFMODM.setPaused(p);
     }
 }
