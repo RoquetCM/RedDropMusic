@@ -20,6 +20,7 @@ public class UISeleccionDeNiveles : MonoBehaviour
     public void PulsarCerrar()
     {
         this.gameObject.transform.parent.gameObject.SetActive(false);
+        Application.Quit();
     }
 
     // Start is called before the first frame update

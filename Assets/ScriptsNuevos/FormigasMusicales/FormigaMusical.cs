@@ -73,7 +73,7 @@ public class FormigaMusical : Enemigo
             furiaPadre.transform.GetChild(2).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
             GeneralMusical.instance.SetFuriaActivada(false);
             ren.GetComponent<Ren2D>().DesactivarFuria();
-            other.gameObject.GetComponent<Ren2D>().Hostion(20);
+            other.gameObject.GetComponent<Ren2D>().Hostion(10);
            Destroy(this.gameObject);
             
         }

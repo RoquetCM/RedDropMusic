@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/PantallaStart.unity
     guid: 3734ed9b7a4804f4283ea3b61c50796a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Escenas/Nivel1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Escenas/Nivel1Ren.unity
+    guid: eaf6a2b2807e7814a9b4fbe97151506c
   - enabled: 0
     path: Assets/Escenas/Nivel_2.unity
     guid: 91238ec54600cd141ad7d1d87c451fe5
@@ -23,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/MenuPrincipal.unity
     guid: 3efe390b3f863724e938e53acc64e6d6
+  - enabled: 1
+    path: Assets/Escenas/OpcionesMenu.unity
+    guid: 1694750591c843a4d8f30db4c4d70d78
   - enabled: 0
     path: Assets/Escenas/Options.unity
     guid: 259e0cac07f2a0f41b7b99ac9c7e57c7

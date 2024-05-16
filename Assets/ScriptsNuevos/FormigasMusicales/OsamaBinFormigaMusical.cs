@@ -42,7 +42,7 @@ public class OsamaBinFormigaMusical : Enemigo
         else
         {
             movimiento = movimientoOriginal;
-            this.GetComponent<Animator>().SetBool("corriendo", true);
+            //this.GetComponent<Animator>().SetBool("corriendo", true);
         }
         posPlayer = ren.gameObject.transform.position;
         this.transform.position = Vector3.MoveTowards(this.transform.position, posPlayer, movimiento * Time.deltaTime);
@@ -116,7 +116,7 @@ public class OsamaBinFormigaMusical : Enemigo
             }
             puntuacionUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetPuntuacion().ToString();
             movimiento = 0;
-            this.gameObject.GetComponent<Animator>().SetTrigger("muerte");
+            //this.gameObject.GetComponent<Animator>().SetTrigger("muerte");
             Destroy(this.gameObject.GetComponent<BoxCollider2D>());
             Destroy(this.gameObject, 0.1f);
 

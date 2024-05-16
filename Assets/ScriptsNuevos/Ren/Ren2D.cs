@@ -97,7 +97,7 @@ public class Ren2D : MonoBehaviour
     {
         ataquerandom = Random.Range(0, 3);
 
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.J))
         {
             this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
@@ -110,7 +110,7 @@ public class Ren2D : MonoBehaviour
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
         }
 
-        else if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.L))
         {
             this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
@@ -127,7 +127,6 @@ public class Ren2D : MonoBehaviour
                 this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque1");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque4");
 
             }
             else if (ataquerandom == 1)
@@ -135,20 +134,17 @@ public class Ren2D : MonoBehaviour
                 this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque2");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque4");
             }
             else if (ataquerandom == 2)
             {
                 this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque3");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque4");
-
             }
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
             this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = true;
@@ -164,7 +160,6 @@ public class Ren2D : MonoBehaviour
                 this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque1");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque4");
 
             }
             else if (ataquerandom == 1)
@@ -172,14 +167,12 @@ public class Ren2D : MonoBehaviour
                 this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque2");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque4");
             }
             else if (ataquerandom == 2)
             {
                 this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque3");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
                 this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque4");
 
             }
 
@@ -208,6 +201,7 @@ public class Ren2D : MonoBehaviour
                 Invoke("BloquearRen",0.5f);
                 this.gameObject.GetComponent<Ren2D>().enabled = false;
                 camvaGameOver.SetActive(true);
+                this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PararMusica();
 
             }
         }

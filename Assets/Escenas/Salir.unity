@@ -226,8 +226,8 @@ Camera:
   m_GameObject: {fileID: 1760344750}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -468,6 +468,20 @@ PrefabInstance:
     - target: {fileID: 1354927683597831110, guid: 908a910e42dccb14e9917e73c5296a0a, type: 3}
       propertyPath: m_Name
       value: CanvasSalir
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923715225681953979, guid: 908a910e42dccb14e9917e73c5296a0a, type: 3}
+      propertyPath: m_text
+      value: 'Yes, I Am Weak
+
+        Press- alt + F4'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697395209851958102, guid: 908a910e42dccb14e9917e73c5296a0a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697395209851958102, guid: 908a910e42dccb14e9917e73c5296a0a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PulsarCerrar
       objectReference: {fileID: 0}
     - target: {fileID: 7503547620131356076, guid: 908a910e42dccb14e9917e73c5296a0a, type: 3}
       propertyPath: m_Color.a

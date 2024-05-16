@@ -177,7 +177,7 @@ public class UIOptions : MonoBehaviour
 
     public void LoadVolumen()
     {
-        volumenslider.value = PlayerPrefs.GetFloat("VOLUMEN");
+        //volumenslider.value = PlayerPrefs.GetFloat("VOLUMEN");
     }
 
     public void SaveVolumen()
@@ -195,7 +195,7 @@ public class UIOptions : MonoBehaviour
 
     public void LoadMusica()
     {
-        musicalider.value = PlayerPrefs.GetFloat("MUSICA");
+        //musicalider.value = PlayerPrefs.GetFloat("MUSICA");
     }
 
     public void SaveMusica()
@@ -213,7 +213,7 @@ public class UIOptions : MonoBehaviour
 
     public void LoadEfectos()
     {
-        efectoslider.value = PlayerPrefs.GetFloat("EFECTOS");
+        //efectoslider.value = PlayerPrefs.GetFloat("EFECTOS");
     }
 
     public void SaveEfectos()

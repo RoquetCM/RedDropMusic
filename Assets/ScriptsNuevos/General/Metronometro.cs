@@ -16,13 +16,13 @@ public class Metronometro : MonoBehaviour
         InvokeRepeating("Tiempo", 0, 0.1f);
         resultado = "";
 
-        Invoke("ComenzarMusica", 3.0f);
+        //Invoke("ComenzarMusica", 3.0f);
     }
     
-    void ComenzarMusica()
-    {
-        this.gameObject.GetComponent<AudioSource>().Play();
-    }
+   // void ComenzarMusica()
+   // {
+       // this.gameObject.GetComponent<AudioSource>().Play();
+   // }
     void Tiempo()
     {
         milisegundo = milisegundo + 0.1f;
@@ -31,7 +31,7 @@ public class Metronometro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        /*if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("J");
             resultado = resultado + "[" + milisegundo + "];D;N\n";
@@ -61,7 +61,7 @@ public class Metronometro : MonoBehaviour
            
      
             Debug.Log(resultado);
-        }
+        }*/
         
 
 

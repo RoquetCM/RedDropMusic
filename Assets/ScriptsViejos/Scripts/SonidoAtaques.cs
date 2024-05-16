@@ -5,22 +5,15 @@ using FMODUnity;
 
 public class SonidoAtaques : MonoBehaviour
 {
-    [FMODUnity.EventRef]
-    public string fmodEventD;
-    [FMODUnity.EventRef]
-    public string fmodEventF;
-    [FMODUnity.EventRef]
-    public string fmodEventI;
-    [FMODUnity.EventRef]
-    public string fmodEventJ;
-    [FMODUnity.EventRef]
-    public string fmodEventK;
-    [FMODUnity.EventRef]
-    public string fmodEventE;
-    [FMODUnity.EventRef]
-    public string fmodEventM;
-    [FMODUnity.EventRef]
-    public string fmodEventN;
+    public FMODUnity.EventReference playerStateEventD;
+    public FMODUnity.EventReference playerStateEventF;
+    public FMODUnity.EventReference playerStateEventI;
+    public FMODUnity.EventReference playerStateEventJ;
+    public FMODUnity.EventReference playerStateEventK;
+    public FMODUnity.EventReference playerStateEventE;
+    public FMODUnity.EventReference playerStateEventN;
+    public FMODUnity.EventReference playerStateEventM;
+
 
     private FMOD.Studio.EventInstance eventoFMODD;
     private FMOD.Studio.EventInstance eventoFMODF;
@@ -34,14 +27,14 @@ public class SonidoAtaques : MonoBehaviour
 
     void Start()
     {
-        eventoFMODD = FMODUnity.RuntimeManager.CreateInstance(fmodEventD);
-        eventoFMODF = FMODUnity.RuntimeManager.CreateInstance(fmodEventF);
-        eventoFMODI = FMODUnity.RuntimeManager.CreateInstance(fmodEventI);
-        eventoFMODJ = FMODUnity.RuntimeManager.CreateInstance(fmodEventJ);
-        eventoFMODK = FMODUnity.RuntimeManager.CreateInstance(fmodEventK);
-        eventoFMODE = FMODUnity.RuntimeManager.CreateInstance(fmodEventE);
-        eventoFMODE = FMODUnity.RuntimeManager.CreateInstance(fmodEventN);
-        eventoFMODM = FMODUnity.RuntimeManager.CreateInstance(fmodEventM);
+        eventoFMODD = FMODUnity.RuntimeManager.CreateInstance(playerStateEventD);
+        eventoFMODF = FMODUnity.RuntimeManager.CreateInstance(playerStateEventF);
+        eventoFMODI = FMODUnity.RuntimeManager.CreateInstance(playerStateEventI);
+        eventoFMODJ = FMODUnity.RuntimeManager.CreateInstance(playerStateEventJ);
+        eventoFMODK = FMODUnity.RuntimeManager.CreateInstance(playerStateEventK);
+        eventoFMODE = FMODUnity.RuntimeManager.CreateInstance(playerStateEventE);
+        eventoFMODE = FMODUnity.RuntimeManager.CreateInstance(playerStateEventN);
+        eventoFMODM = FMODUnity.RuntimeManager.CreateInstance(playerStateEventM);
     }
 
     // Update is called once per frame
@@ -69,7 +62,7 @@ public class SonidoAtaques : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            eventoFMODE.start();
+            eventoFMODI.start();
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
