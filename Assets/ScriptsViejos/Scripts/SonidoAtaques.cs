@@ -102,4 +102,15 @@ public class SonidoAtaques : MonoBehaviour
         eventoFMODN.release();
         eventoFMODM.release();
     }
+    public void ControladorVolumen()
+    {
+        eventoFMODD.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODF.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODI.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODJ.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODK.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODE.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODN.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODM.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+    }
 }

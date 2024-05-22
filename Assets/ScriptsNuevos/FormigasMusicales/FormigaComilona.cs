@@ -21,6 +21,7 @@ public class FormigaComilona : Enemigo
     [SerializeField]
     protected Sprite[] curas;
     protected int comidaAleatoria;
+    protected GameObject combosUI;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -30,6 +31,7 @@ public class FormigaComilona : Enemigo
         comidaAleatoria = Random.Range(0, curas.Length);
         this.gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = curas[comidaAleatoria];
         ren = (GameObject)GameObject.FindGameObjectWithTag("Ren");
+        combosUI = GeneralMusical.instance.GetComboUIGeneral();
         puntuacionUI = GeneralMusical.instance.GetPuntuacionUIGeneral();
         furiaPadre = (GameObject)GameObject.FindGameObjectWithTag("FuriaPadre");
         this.GetComponent<Animator>().SetBool("corriendo", true);
@@ -93,6 +95,15 @@ public class FormigaComilona : Enemigo
 
         if (vidaEnemigo <= 0)
         {
+            GeneralMusical.instance.SetFormigasMoridas(GeneralMusical.instance.GetFormigasMoridas() + 1);
+            if (GeneralMusical.instance.GetFormigasMoridas() > 1)
+            {
+                combosUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetFormigasMoridas().ToString();
+            }
+            else
+            {
+                combosUI.gameObject.GetComponent<TMP_Text>().text = "";
+            }
             movimiento = 0;
             posPlayer = this.gameObject.transform.position;
 

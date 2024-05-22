@@ -132,7 +132,7 @@ public class CreadorFormigasMusicales : MonoBehaviour
                         notasMusicales.RemoveAt(0);
                         if (notasMusicales.Count <= 0)
                         {
-                            Invoke("ActivarPenlVictori", 7);
+                            Invoke("PuntuacionAnimada",3);
 
                             CancelInvoke("ComprobarNotasMusicales");
                         }
@@ -152,6 +152,11 @@ public class CreadorFormigasMusicales : MonoBehaviour
                 CancelInvoke("ComprobarNotasMusicales");
             }
         }
+    }
+    public void PuntuacionAnimada()
+    {
+        Invoke("ActivarPenlVictori", 3);
+        puntucaionUI.GetComponent<Animator>().SetTrigger("puntuacionCentro");
     }
     public void ActivarPenlVictori()
     {
@@ -446,5 +451,11 @@ public class CreadorFormigasMusicales : MonoBehaviour
     public void PausarAudio(bool p)
     {
         eventoFMODM.setPaused(p);
+    }
+    public void ControladorVolumen()
+    {
+        eventoFMODL.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODN.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+        eventoFMODM.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
     }
 }

@@ -12,8 +12,7 @@ public class UIOptions : MonoBehaviour
    protected GameObject Panelcontroles;
     [SerializeField]
    protected GameObject Panellanguage;
-   [SerializeField]
-   protected GameObject Panelvisuals;
+   
 
 
     //Filtros dltonicos
@@ -38,16 +37,21 @@ public class UIOptions : MonoBehaviour
     [SerializeField] Slider efectoslider;
 
 
+    [SerializeField]
+    protected GameObject panelPausa;
+    [SerializeField]
+    protected GameObject opciones;
+
+    [SerializeField]
+    protected GameObject click;
+
     // Start is called before the first frame update
     void Start()
     {
-     Panelsound.SetActive(false);
+     //Panelsound.SetActive(false);
      Panelcontroles.SetActive(false);
-     Panelvisuals.SetActive(false);
+     
 
-     PanelDeuteranopia.SetActive(false);
-     PanelProtanopia.SetActive(false);
-     PanelTritanopia.SetActive(false);
 
         
         slider.value = PlayerPrefs.GetFloat("brillo", 0.5f);
@@ -103,24 +107,27 @@ public class UIOptions : MonoBehaviour
    
         public void TogglePanel1()
     {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();
+
         // Si el panel está inactivo, lo activamos; si está activo, lo desactivamos
         Panelsound.SetActive(!Panelsound.activeSelf);
         Panelcontroles.SetActive(false);
-        Panelvisuals.SetActive(false);
     }
 
      public void TogglePanel2()
     {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();
+
         // Si el panel está inactivo, lo activamos; si está activo, lo desactivamos
         Panelcontroles.SetActive(!Panelcontroles.activeSelf);
         Panelsound.SetActive(false);
-        Panelvisuals.SetActive(false);
+      
     }
 
      public void TogglePanel4()
     {
         // Si el panel está inactivo, lo activamos; si está activo, lo desactivamos
-        Panelvisuals.SetActive(!Panelvisuals.activeSelf);
+        
         Panelsound.SetActive(false);
         Panelcontroles.SetActive(false);
     }
@@ -163,6 +170,7 @@ public class UIOptions : MonoBehaviour
 
     public void CambiarEscena(string nombre)
     {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();
         SceneManager.LoadScene(nombre);
 
     }
@@ -219,5 +227,12 @@ public class UIOptions : MonoBehaviour
     public void SaveEfectos()
     {
         PlayerPrefs.SetFloat("EFECTOS", efectoslider.value);
+    }
+    public void VolverPausa()
+    {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();
+
+        panelPausa.SetActive(true);
+        opciones.SetActive(false);
     }
 }

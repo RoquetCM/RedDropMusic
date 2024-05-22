@@ -20,6 +20,8 @@ public class Ren2D : MonoBehaviour
 
     [SerializeField]
     protected GameObject puntuacionUI;
+    [SerializeField]
+    protected GameObject combosUI;
 
     [SerializeField]
     protected GameObject sangreMusicalRen;
@@ -31,10 +33,26 @@ public class Ren2D : MonoBehaviour
     protected Color enfadado;
 
     protected int zona;
+    protected bool bloquearPausa;
+
+    [SerializeField]
+    protected GameObject panelSalir;
+    [SerializeField]
+    protected GameObject opciones;
+
+    
+    protected GameObject musicaFondo;
+
+
 
     void Start()
     {
+        musicaFondo = (GameObject)GameObject.FindGameObjectWithTag("MusicaFondo");
+        musicaFondo.gameObject.GetComponent<MusicaFondo>().ParaMusicaPorfa();
+        Invoke("DesbloquearPausaTemporal", 4);
+        bloquearPausa = true;
         GeneralMusical.instance.SetPuntuacionUIGeneral(puntuacionUI);
+        GeneralMusical.instance.SetComboUIGeneral(combosUI);
         vidaMaxima = 100;
         barraDeVida.GetComponent<Image>().fillAmount = vidaMaxima / 100;
         estoyMuerto = false;
@@ -70,24 +88,39 @@ public class Ren2D : MonoBehaviour
         }
 
     }
+    public void DesbloquearPausaTemporal()
+    {
+        bloquearPausa = false;
+    }
+
+    
     
     public void Pausa()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (bloquearPausa == false)
         {
-            if (panelPausa.activeSelf==false) 
+
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                GeneralMusical.instance.SetPararJuego(true);
-                this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PausarAudio(true);
-                panelPausa.SetActive(true);
-            }
-            else
-            {
-                GeneralMusical.instance.SetPararJuego(false);
-                this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PausarAudio(false);
-                panelPausa.SetActive(false);
+                if (panelPausa.activeSelf == false)
+                {
+                    GeneralMusical.instance.SetPararJuego(true);
+                    this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PausarAudio(true);
+                    panelPausa.SetActive(true);
+                    opciones.SetActive(false);
+                    
+                }
+                else
+                {
+                    GeneralMusical.instance.SetPararJuego(false);
+                    this.gameObject.transform.GetChild(5).gameObject.GetComponent<CreadorFormigasMusicales>().PausarAudio(false);
+                    panelPausa.SetActive(false);
+                    panelSalir.SetActive(false);
+                    opciones.SetActive(false);
+                }
             }
         }
+        
     }
     public void ZonaAtaque()
     {
@@ -185,11 +218,13 @@ public class Ren2D : MonoBehaviour
 
         if (estoyMuerto == false)
         {
+            GeneralMusical.instance.SetFormigasMoridas(0);
+            combosUI.gameObject.GetComponent<TMP_Text>().text = "";
             sangreMusicalCloneRen = (GameObject)Instantiate(sangreMusicalRen, this.gameObject.transform.position, Quaternion.identity);
             Destroy(sangreMusicalCloneRen, 1.0f);
             vida = vida - hostia;
             barraDeVida.GetComponent<Animator>().SetTrigger("EfectoPupa");
-            this.gameObject.transform.GetComponent<Animator>().SetTrigger("golpe");
+            //this.gameObject.transform.GetComponent<Animator>().SetTrigger("golpe");
             Invoke("ResetearGolpe", 0.01f);
             barraDeVida.GetComponent<Image>().fillAmount = vida / 100;
             if (vida < 0)

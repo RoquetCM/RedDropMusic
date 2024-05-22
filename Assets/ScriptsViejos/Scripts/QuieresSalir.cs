@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class UISeleccionDeNiveles : MonoBehaviour
 {
-
+    [SerializeField]
+    protected GameObject click;
 
     public void CambiarEscena(string nombreEscena)
     {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(nombreEscena);
 
@@ -19,6 +22,8 @@ public class UISeleccionDeNiveles : MonoBehaviour
     
     public void PulsarCerrar()
     {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();
+
         this.gameObject.transform.parent.gameObject.SetActive(false);
         Application.Quit();
     }

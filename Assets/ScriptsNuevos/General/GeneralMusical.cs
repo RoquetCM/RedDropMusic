@@ -18,8 +18,28 @@ public class GeneralMusical : MonoBehaviour
     public static float puntuacionFuria;
     public static GameObject puntuacionUIGeneral;
     public static bool ataqueActivado;
+    public static GameObject comboUIGeneral;
+    public static float formigasMoridas;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void SetFormigasMoridas(float z)
+    {
+
+        formigasMoridas = z;
+    }
+    public float GetFormigasMoridas()
+    {
+        return formigasMoridas;
+    }
+    public void SetComboUIGeneral(GameObject h)
+    {
+
+        comboUIGeneral = h;
+    }
+    public GameObject GetComboUIGeneral()
+    {
+        return comboUIGeneral;
+    }
     public void SetAtaqueActivado(bool p)
     {
 
@@ -131,6 +151,7 @@ public class GeneralMusical : MonoBehaviour
         {
             instance = this;
         }
+        formigasMoridas = 0;
         furia = 0;
         incrementoFuria = 0.05f;
         pararJuego = false;

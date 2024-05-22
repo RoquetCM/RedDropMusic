@@ -27,6 +27,8 @@ TagManager:
   - AuraFuria
   - FuriaPadre
   - Puntuacion2
+  - MusicaFondo
+  - Click
   layers:
   - Default
   - TransparentFX

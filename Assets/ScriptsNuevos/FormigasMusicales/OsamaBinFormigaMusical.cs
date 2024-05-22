@@ -21,12 +21,14 @@ public class OsamaBinFormigaMusical : Enemigo
     protected float movimientoOriginal;
     protected GameObject puntuacionUI;
     protected GameObject furiaPadre;
+    protected GameObject combosUI;
 
 
     void Start()
     {
         furiaPadre = (GameObject)GameObject.FindGameObjectWithTag("FuriaPadre");
         puntuacionUI = GeneralMusical.instance.GetPuntuacionUIGeneral();
+        combosUI = GeneralMusical.instance.GetComboUIGeneral();
         movimientoOriginal = movimiento;
         ren = (GameObject)GameObject.FindGameObjectWithTag("Ren");
     }
@@ -72,6 +74,15 @@ public class OsamaBinFormigaMusical : Enemigo
 
         if (vidaEnemigo <= 0)
         {
+            GeneralMusical.instance.SetFormigasMoridas(GeneralMusical.instance.GetFormigasMoridas() + 1);
+            if (GeneralMusical.instance.GetFormigasMoridas() > 1)
+            {
+                combosUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetFormigasMoridas().ToString();
+            }
+            else
+            {
+                combosUI.gameObject.GetComponent<TMP_Text>().text = "";
+            }
             sangreMusicalClone = (GameObject)Instantiate(sangreMusical, this.gameObject.transform.position, Quaternion.identity);
             Destroy(sangreMusicalClone, 1.0f);
             puntuacionUI.GetComponent<Animator>().SetTrigger("golpe");

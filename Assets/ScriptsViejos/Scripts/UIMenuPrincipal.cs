@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class UIMenuPrincipal : MonoBehaviour
 {
+    [SerializeField]
+    protected GameObject click;
 
     public void CambiarEscena(string nombre)
     {
+        click.gameObject.GetComponent<SonidoClink>().Clicar();  
         SceneManager.LoadScene(nombre);
     }
 
