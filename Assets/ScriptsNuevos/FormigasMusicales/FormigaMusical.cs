@@ -21,7 +21,11 @@ public class FormigaMusical : Enemigo
     [SerializeField]
     protected Sprite[] curas;
     protected GameObject combosUI;
-    
+    [SerializeField]
+    protected Color colorGood;
+    [SerializeField]
+    protected Color colorPerfect;
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -123,7 +127,7 @@ public class FormigaMusical : Enemigo
                 }
             }
             distancia = Vector2.Distance(this.gameObject.transform.position, ren.gameObject.transform.position);
-            if (distancia >= 1.3 && distancia <= 2f)
+            if (distancia >= 1.2 && distancia <= 1.8f)
             {
                 if (GeneralMusical.instance.GetFuriaActivada() == false)
                 {
@@ -133,7 +137,63 @@ public class FormigaMusical : Enemigo
                 {
                     GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria() * GeneralMusical.instance.GetMultiplicador()));
                 }
-                puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                if(this.transform.GetComponent<SpriteRenderer>().flipX == false)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "PERFECT!!";
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#FBC12C", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+
+                }
+                else if (this.transform.GetComponent<SpriteRenderer>().flipX == true)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "PERFECT!!";
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#FBC12C", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                //puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                ren.GetComponent<Ren2D>().Perfecto();
+
+            }
+            else if (distancia >= 0.9 && distancia <= 2.2f)
+            {
+                if (GeneralMusical.instance.GetFuriaActivada() == false)
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionGolpe()));
+                }
+                else
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria()));
+                }
+                if (this.transform.GetComponent<SpriteRenderer>().flipX == false)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text="GOOD!";
+                    
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#53FF77", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                else if (this.transform.GetComponent<SpriteRenderer>().flipX == true)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "GOOD!";
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#53FF77", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                //puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 ren.GetComponent<Ren2D>().Perfecto();
 
             }

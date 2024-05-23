@@ -20,8 +20,18 @@ public class GeneralMusical : MonoBehaviour
     public static bool ataqueActivado;
     public static GameObject comboUIGeneral;
     public static float formigasMoridas;
+    public static GameObject canvasPerfecto;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public GameObject GetCanvasPerfecto()
+    {
+        return canvasPerfecto;
+    }
+    public void SetcanvasPerfecto(GameObject a)
+    {
+
+        canvasPerfecto = a;
+    }
     public void SetFormigasMoridas(float z)
     {
 

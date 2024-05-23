@@ -23,6 +23,11 @@ public class FormigaComilona : Enemigo
     protected int comidaAleatoria;
     protected GameObject combosUI;
 
+    [SerializeField]
+    protected Color colorGood;
+    [SerializeField]
+    protected Color colorPerfect;
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void Start()
@@ -128,7 +133,7 @@ public class FormigaComilona : Enemigo
                 }
             }
             distancia = Vector2.Distance(this.gameObject.transform.position, ren.gameObject.transform.position);
-            if (distancia >= 1.3 && distancia <= 2f)
+            if (distancia >= 1.2 && distancia <= 1.8f)
             {
                 if (GeneralMusical.instance.GetFuriaActivada() == false)
                 {
@@ -138,8 +143,61 @@ public class FormigaComilona : Enemigo
                 {
                     GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria() * GeneralMusical.instance.GetMultiplicador()));
                 }
+                if (this.transform.GetComponent<SpriteRenderer>().flipX == false)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "PERFECT!!"; 
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#FBC12C", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                else if (this.transform.GetComponent<SpriteRenderer>().flipX == true)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "PERFECT!!";
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#FBC12C", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                //puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                ren.GetComponent<Ren2D>().Perfecto();
 
-                puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            }
+            else if (distancia >= 0.9 && distancia <= 2.2f)
+            {
+                if (GeneralMusical.instance.GetFuriaActivada() == false)
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionGolpe()));
+                }
+                else
+                {
+                    GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria()));
+                }
+                if (this.transform.GetComponent<SpriteRenderer>().flipX == false)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "GOOD!"; 
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#53FF77", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                else if (this.transform.GetComponent<SpriteRenderer>().flipX == true)
+                {
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.SetActive(true);
+                    GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "GOOD!";
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString("#53FF77", out color))
+                    {
+                        GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(1).gameObject.GetComponent<TMP_Text>().color = color;
+                    }
+                }
+                //puntuacionUI.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 ren.GetComponent<Ren2D>().Perfecto();
 
             }
@@ -154,7 +212,7 @@ public class FormigaComilona : Enemigo
                     GeneralMusical.instance.SetPuntuacion(GeneralMusical.instance.GetPuntuacion() + (GeneralMusical.instance.GetPuntuacionFuria()));
                 }
             }
-           puntuacionUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetPuntuacion().ToString();
+            puntuacionUI.gameObject.GetComponent<TMP_Text>().text = GeneralMusical.instance.GetPuntuacion().ToString();
             this.gameObject.GetComponent<Animator>().SetTrigger("muerte");
             Destroy(this.gameObject.GetComponent<BoxCollider2D>());
             this.gameObject.transform.GetChild(2).gameObject.SetActive(false);

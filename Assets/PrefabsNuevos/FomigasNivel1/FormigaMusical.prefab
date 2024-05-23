@@ -341,3 +341,5 @@ MonoBehaviour:
   posPlayer: {x: 0, y: 0, z: 0}
   sangreMusical: {fileID: 6456982019659842248, guid: 3ec12167a88f6c447b2d1da780e3d9ae, type: 3}
   curas: []
+  colorGood: {r: 0.3254717, g: 1, b: 0.46816397, a: 0}
+  colorPerfect: {r: 0.9843137, g: 0.75820136, b: 0.17254902, a: 0}
