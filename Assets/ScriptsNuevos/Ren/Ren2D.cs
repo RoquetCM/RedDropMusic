@@ -49,8 +49,6 @@ public class Ren2D : MonoBehaviour
 
     void Start()
     {
-        musicaFondo = (GameObject)GameObject.FindGameObjectWithTag("MusicaFondo");
-        //musicaFondo.gameObject.GetComponent<MusicaFondo>().ParaMusicaPorfa();
         Invoke("DesbloquearPausaTemporal", 4);
         bloquearPausa = true;
         GeneralMusical.instance.SetPuntuacionUIGeneral(puntuacionUI);
@@ -66,6 +64,8 @@ public class Ren2D : MonoBehaviour
     {
         Invoke("Ocultar", 0.3f);
     }
+   
+
     public void Ocultar()
     {
         GeneralMusical.instance.GetCanvasPerfecto().transform.GetChild(0).gameObject.SetActive(false);

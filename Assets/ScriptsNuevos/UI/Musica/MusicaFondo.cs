@@ -19,23 +19,13 @@ public class MusicaFondo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-        if (!once_call)
-        {
-            DontDestroyOnLoad(this);
-            once_call = true;
-        }
-        else
-        {
-            Destroy(gameObject);
 
-        }
     }
     public void JugarNiveles(string nombre)
     {
-        Debug.Log("quiro jugar mama");
         //click.gameObject.GetComponent<SonidoClink>().Clicar();
         eventoFMODM.stop(STOP_MODE.IMMEDIATE);
+        eventoFMODM.release();
         SceneManager.LoadScene(nombre);
     }
     // Update is called once per frame

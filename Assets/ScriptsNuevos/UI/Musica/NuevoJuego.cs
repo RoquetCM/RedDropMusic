@@ -25,7 +25,8 @@ public class NuevoJuego : MonoBehaviour
     public void QuieroJugar()
     {
         click.gameObject.GetComponent<SonidoClink>().Clicar();
-        musicaFondo.gameObject.GetComponent<MusicaFondo>().JugarNiveles("Nivel1Ren");
+        musicaFondo.gameObject.GetComponent<MusicaFondo>().JugarNiveles("Cinematica1");
+
     }
     public void JesusSalvanos()
     {

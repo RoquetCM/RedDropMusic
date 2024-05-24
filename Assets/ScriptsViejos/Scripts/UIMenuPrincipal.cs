@@ -9,7 +9,25 @@ public class UIMenuPrincipal : MonoBehaviour
 {
     [SerializeField]
     protected GameObject click;
+    [SerializeField]
+    protected GameObject camvasOpcionesMenu;
+    [SerializeField]
+    protected GameObject letrasCanvasMenu;
+    [SerializeField]
+    protected GameObject eventSystemExterior;
 
+    public void CerrarOpcionesMenus()
+    {
+        camvasOpcionesMenu.SetActive(false);
+        letrasCanvasMenu.SetActive(true);
+        eventSystemExterior.SetActive(true);
+    }
+    public void OpcionesMenus()
+    {
+        camvasOpcionesMenu.SetActive(true);
+        letrasCanvasMenu.SetActive(false);
+        eventSystemExterior.SetActive(false);
+    }
     public void CambiarEscena(string nombre)
     {
         click.gameObject.GetComponent<SonidoClink>().Clicar();  
@@ -49,7 +67,10 @@ public class UIMenuPrincipal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("CONTROLES") == false)
+        {
+            PlayerPrefs.SetInt("CONTROLES", 1);
+        }
     }
 
     // Update is called once per frame

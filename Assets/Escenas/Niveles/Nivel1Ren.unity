@@ -4326,6 +4326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasVida
       objectReference: {fileID: 0}
+    - target: {fileID: 4793942671458740938, guid: 26692aaf5b0ee374dbef16602cb72740, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5006707246418936709, guid: 26692aaf5b0ee374dbef16602cb72740, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6809,7 +6813,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5210812093661223539, guid: d9e68bbb14e2691449db059769f750ad, type: 3}
-      insertIndex: 5
+      insertIndex: -1
       addedObject: {fileID: 212502301}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6909365736021571695, guid: d9e68bbb14e2691449db059769f750ad, type: 3}

@@ -8,6 +8,7 @@ using System.Linq;
 using FMODUnity;
 using System.Diagnostics.Tracing;
 using FMOD.Studio;
+using UnityEngine.SceneManagement;
 
 public class CreadorFormigasMusicales : MonoBehaviour
 {
@@ -72,7 +73,18 @@ public class CreadorFormigasMusicales : MonoBehaviour
         tiempoMusica = 0;
         puntucaionUI.SetActive(false);
         contadorCrono = 3;
-        LectorFichero(nombreFichero);
+        if (SceneManager.GetActiveScene().name == "Nivel1Ren")
+        {
+            LectorFicheroN1(nombreFichero);
+        }
+        else if (SceneManager.GetActiveScene().name == "Nivel2Ren")
+        {
+            LectorFicheroN2(nombreFichero);
+        }
+        else if (SceneManager.GetActiveScene().name == "Nivel3Ren")
+        {
+            LectorFicheroN3(nombreFichero);
+        }
         InvokeRepeating("ComprobarNotasMusicales", 0.0f, 0.1f);
         InvokeRepeating("Crono", 0.0f, 1f);
         Invoke("Teclas", 4);
@@ -114,8 +126,21 @@ public class CreadorFormigasMusicales : MonoBehaviour
                 {
                     partes[0] = partes[0].Replace("[", "");
                     partes[0] = partes[0].Replace("]", "");
+                    float retraso = 0;
+                    if (SceneManager.GetActiveScene().name == "Nivel1Ren")
+                    {
+                        retraso = 2.7f;
+                    }
+                    else if (SceneManager.GetActiveScene().name == "Nivel2Ren")
+                    {
+                        retraso = 2.7f;
+                    }
+                    else if (SceneManager.GetActiveScene().name == "Nivel3Ren")
+                    {
+                        retraso = 2.7f;
+                    }
 
-                    if (tiempo > float.Parse(partes[0]) - 2.7f)//- 2.199999f
+                    if (tiempo > float.Parse(partes[0]) - retraso)//- 2.199999f
                     {
                         if (partes[1] == "D")
                         {
@@ -160,35 +185,28 @@ public class CreadorFormigasMusicales : MonoBehaviour
     }
     public void ActivarPenlVictori()
     {
-        panelVictoria.SetActive(true);
+        if (SceneManager.GetActiveScene().name == "Nivel1Ren")
+        {
+            SceneManager.LoadScene("Cinematica2");
+        }
+        else if (SceneManager.GetActiveScene().name == "Nivel2Ren")
+        {
+            SceneManager.LoadScene("Cinematica3");
+        }
+        else if (SceneManager.GetActiveScene().name == "Nivel3Ren")
+        {
+            SceneManager.LoadScene("Creditos");
+        }
+       
         PararMusica();
     }
-    public void LectorFichero(string nombre)
+    public void LectorFicheroN1(string nombre)
     {
-        /*string filePath = Path.Combine(Application.dataPath+ "/Resources/", nombre);
-
-        if (File.Exists(filePath))
-        {
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    notasMusicales.Add(line); // Agrega cada línea a la lista
-                }
-            }
-
-            Debug.Log($"Archivo leído con éxito. Total de líneas: {notasMusicales.Count}");
-        }
-        else
-        {
-            Debug.LogError($"Archivo no encontrado: {filePath}");
-        }*/
         notasMusicales.Add("[6,099997];D;N");
         notasMusicales.Add("[7,699995];I;N");
         notasMusicales.Add("[9,299999];A;N");
         notasMusicales.Add("[10];D;N");
-        notasMusicales.Add("[10,8];I;N");
+        /*notasMusicales.Add("[10,8];I;N");
         notasMusicales.Add("[12,50001];A;N");
         notasMusicales.Add("[14,00002];D;N");
         notasMusicales.Add("[15,70002];I;N");
@@ -363,12 +381,72 @@ public class CreadorFormigasMusicales : MonoBehaviour
         notasMusicales.Add("[150,7];I;N");
         notasMusicales.Add("[151,5];A;N");
         notasMusicales.Add("[152,3001];D;N");
-        notasMusicales.Add("[153,5002];I;N");
+        notasMusicales.Add("[153,5002];I;N");*/
 
 
 
 
     }
+    public void LectorFicheroN2(string nombre)
+    {
+        notasMusicales.Add("[6,099997];D;N");
+        notasMusicales.Add("[7,699995];I;N");
+        notasMusicales.Add("[9,299999];A;N");
+        notasMusicales.Add("[10];D;C");
+    }
+    public void LectorFicheroN3(string nombre)
+    {
+        notasMusicales.Add("[1,5];D;N");
+        notasMusicales.Add("[1,7];I;N");
+        notasMusicales.Add("[2,7];D;N");
+        notasMusicales.Add("[2,999999];I;N");
+        /*notasMusicales.Add("[3,399999];D;N");
+        notasMusicales.Add("[3,599999];I;N");
+        notasMusicales.Add("[4,899998];D;N");
+        notasMusicales.Add("[5,099998];I;N");
+        notasMusicales.Add("[5,399997];A;N");
+        notasMusicales.Add("[5,599997];I;N");
+        notasMusicales.Add("[5,899997];I;N");
+        notasMusicales.Add("[6,099997];A;N");
+        notasMusicales.Add("[7,599995];I;N");
+        notasMusicales.Add("[7,799995];D;N");
+        notasMusicales.Add("[7,999995];I;N");
+        notasMusicales.Add("[9,800001];D;N");
+        notasMusicales.Add("[10,1];I;N");
+        notasMusicales.Add("[11,10001];I;N");
+        notasMusicales.Add("[11,50001];I;N");
+        notasMusicales.Add("[11,70001];I;N");
+        notasMusicales.Add("[12,00001];A;N");
+        notasMusicales.Add("[12,20001];I;N");
+        notasMusicales.Add("[13,90002];I;N");
+        notasMusicales.Add("[14,20002];A;N");
+        notasMusicales.Add("[14,30002];D;N");
+        notasMusicales.Add("[15,80002];D;N");
+        notasMusicales.Add("[16,00002];D;N");
+        notasMusicales.Add("[16,20003];D;N");
+        notasMusicales.Add("[16,30003];D;N");
+        notasMusicales.Add("[16,40003];D;N");
+        notasMusicales.Add("[16,50003];D;N");
+        notasMusicales.Add("[16,70003];D;N");
+        notasMusicales.Add("[17,80003];I;N");
+        notasMusicales.Add("[19,30004];A;N");
+        notasMusicales.Add("[19,40004];A;N");
+        notasMusicales.Add("[19,70004];A;N");
+        notasMusicales.Add("[21,90005];I;N");
+        notasMusicales.Add("[22,10005];D;N");
+        notasMusicales.Add("[22,60005];I;N");
+        notasMusicales.Add("[23,50005];D;N");
+        notasMusicales.Add("[23,80005];I;N");
+        notasMusicales.Add("[24,10006];D;N");
+        notasMusicales.Add("[24,40006];I;N");
+        notasMusicales.Add("[24,70006];D;N");
+        notasMusicales.Add("[27,60007];I;N");
+        notasMusicales.Add("[27,80007];D;N");
+        notasMusicales.Add("[28,10007];A;N");
+        notasMusicales.Add("[28,50007];A;N");
+        notasMusicales.Add("[28,80007];I;N");*/
+    }
+
 
     void Update()
     {
