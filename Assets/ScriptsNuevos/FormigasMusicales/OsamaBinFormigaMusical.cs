@@ -62,7 +62,7 @@ public class OsamaBinFormigaMusical : Enemigo
     {
         if (other.gameObject.tag == ("Ren"))
         {
-            this.gameObject.transform.GetChild(3).gameObject.SetActive(true);
+            //this.gameObject.transform.GetChild(3).gameObject.SetActive(true);
             GeneralMusical.instance.SetFuria(0);
             furiaPadre.GetComponent<Animator>().SetTrigger("golpe");
             furiaPadre.transform.GetChild(0).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();

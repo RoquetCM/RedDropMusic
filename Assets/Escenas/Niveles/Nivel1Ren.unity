@@ -14429,6 +14429,7 @@ MonoBehaviour:
   camvasSalir: {fileID: 1399982500}
   click: {fileID: 1440700267}
   eventSystemExterior: {fileID: 761566776}
+  eventSystemInterior: {fileID: 1870867801}
 --- !u!224 &1626441127 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4749759994165682497, guid: 42a7f727705d270438220b40bc17d692, type: 3}

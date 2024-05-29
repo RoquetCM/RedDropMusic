@@ -16,15 +16,29 @@ public class UIPausa : MonoBehaviour
     [SerializeField]
     protected GameObject eventSystemExterior;
 
+    [SerializeField]
+    protected GameObject eventSystemInterior;
 
-    public void CerrarEventos()
+
+    public void CerrarEventosExterior()
     {
         eventSystemExterior.SetActive(true);
     }
-    public void AbrirEventos()
+    public void AbrirEventosExterior()
     {
         eventSystemExterior.SetActive(false);
     }
+
+    public void CerrarEventosInterior()
+    {
+        eventSystemInterior.SetActive(true);
+    }
+    public void AbrirEventosInterior()
+    {
+        eventSystemInterior.SetActive(false);
+    }
+
+
     public void CambiarEscena(string nombre)
     {
         click.gameObject.GetComponent<SonidoClink>().Clicar();
