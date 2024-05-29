@@ -87,11 +87,7 @@ public class Ren2D : MonoBehaviour
     {
         if (estoyMuerto == false)
         {
-            if (panelPausa.activeSelf == false)
-            {
-                Ataque();
-                
-            }
+            
             
             Pausa();
 
@@ -138,93 +134,7 @@ public class Ren2D : MonoBehaviour
     {
         this.gameObject.transform.GetChild(zona).GetComponent<RenAtaques>().Danyar();
     }
-    public void Ataque()
-    {
-        ataquerandom = Random.Range(0, 3);
-
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.J))
-        {
-            this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
-            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
-            this.gameObject.transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = false;
-            this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataquesalto");
-            //this.gameObject.transform.GetChild(2).GetComponent<RenAtaques>().Danyar();
-            zona = 2;
-            Invoke("ZonaAtaque", 0f);
-            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.L))
-        {
-            this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
-            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
-            this.gameObject.transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = false;
-            //this.gameObject.transform.GetChild(0).GetComponent<RenAtaques>().Danyar();
-            zona = 0;
-            Invoke("ZonaAtaque", 0.15f);
-            this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            this.gameObject.transform.GetChild(2).gameObject.SetActive(false);
-
-
-            if (ataquerandom == 0)
-            {
-                this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque1");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-
-            }
-            else if (ataquerandom == 1)
-            {
-                this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque2");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-            }
-            else if (ataquerandom == 2)
-            {
-                this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque3");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
-            }
-
-        }
-
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
-        {
-            this.gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
-            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = true;
-            this.gameObject.transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = true;
-            //this.gameObject.transform.GetChild(1).GetComponent<RenAtaques>().Danyar();
-            zona = 1;
-            Invoke("ZonaAtaque", 0.15f);
-            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            this.gameObject.transform.GetChild(2).gameObject.SetActive(false);
-
-            if (ataquerandom == 0)
-            {
-                this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque1");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-
-            }
-            else if (ataquerandom == 1)
-            {
-                this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque2");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque3");
-            }
-            else if (ataquerandom == 2)
-            {
-                this.gameObject.transform.GetComponent<Animator>().SetTrigger("ataque3");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque1");
-                this.gameObject.transform.GetComponent<Animator>().ResetTrigger("ataque2");
-
-            }
-
-
-        }
-
-    }
+   
     public void Hostion(int hostia)
     {
 

@@ -89,11 +89,16 @@ public class FormigaMusical : Enemigo
         vidaEnemigo = vidaEnemigo - danio;
         Muerte();
     }
+    public void ParticulasChipas()
+    {
+        this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+    }
     public void Muerte()
     {
 
         if (vidaEnemigo <= 0)
         {
+            Invoke("ParticulasChipas", 0.1f);
             GeneralMusical.instance.SetFormigasMoridas(GeneralMusical.instance.GetFormigasMoridas() + 1);
             if (GeneralMusical.instance.GetFormigasMoridas() > 1)
             {

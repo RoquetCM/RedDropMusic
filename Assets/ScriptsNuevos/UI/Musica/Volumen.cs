@@ -29,6 +29,7 @@ public class Volumen : MonoBehaviour
     {
         PlayerPrefs.SetFloat("VOLUMEN", this.gameObject.GetComponent<Slider>().value);
         musicaFondo.gameObject.GetComponent<MusicaFondo>().ControladorVolumen(this.gameObject.GetComponent<Slider>().value);
+        AudioListener.volume = this.gameObject.GetComponent<Slider>().value;
     }
 
 }

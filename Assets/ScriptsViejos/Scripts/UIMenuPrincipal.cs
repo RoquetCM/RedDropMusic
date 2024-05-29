@@ -71,6 +71,7 @@ public class UIMenuPrincipal : MonoBehaviour
         {
             PlayerPrefs.SetInt("CONTROLES", 1);
         }
+        
     }
 
     // Update is called once per frame

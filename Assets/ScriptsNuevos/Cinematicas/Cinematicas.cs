@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+using UnityEngine.Rendering;
 
 public class Cinematicas : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class Cinematicas : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("VOLUMEN"))
+        {
+            this.gameObject.transform.GetChild(0).gameObject.GetComponent<VideoPlayer>().SetDirectAudioVolume(0, PlayerPrefs.GetFloat("VOLUMEN"));
+        
+        }
         Invoke("SaltamientoEscenas", 5);
         Invoke("CambiarEscenaCinematicas", tiempo);
     }

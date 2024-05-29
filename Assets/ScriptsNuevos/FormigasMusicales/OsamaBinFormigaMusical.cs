@@ -62,6 +62,7 @@ public class OsamaBinFormigaMusical : Enemigo
     {
         if (other.gameObject.tag == ("Ren"))
         {
+            this.gameObject.transform.GetChild(3).gameObject.SetActive(true);
             GeneralMusical.instance.SetFuria(0);
             furiaPadre.GetComponent<Animator>().SetTrigger("golpe");
             furiaPadre.transform.GetChild(0).GetComponent<Image>().fillAmount = GeneralMusical.instance.GetFuria();
@@ -69,15 +70,26 @@ public class OsamaBinFormigaMusical : Enemigo
             GeneralMusical.instance.SetFuriaActivada(false);;
             ren.GetComponent<Ren2D>().DesactivarFuria();
             other.gameObject.GetComponent<Ren2D>().Hostion(10);
+            //this.gameObject.transform.GetChild(3).gameObject.SetActive(true);
+            //Invoke("DestructorFormigas", 2f);
             Destroy(this.gameObject);
 
         }
+    }
+    /*public void DestructorFormigas()
+    {
+        Destroy(this.gameObject);
+    }*/
+    public void ParticulasChipas()
+    {
+        this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
     }
     public void Muerte()
     {
 
         if (vidaEnemigo <= 0)
         {
+            Invoke("ParticulasChipas", 0.1f);
             GeneralMusical.instance.SetFormigasMoridas(GeneralMusical.instance.GetFormigasMoridas() + 1);
             if (GeneralMusical.instance.GetFormigasMoridas() > 1)
             {

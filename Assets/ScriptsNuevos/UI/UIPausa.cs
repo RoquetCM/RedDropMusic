@@ -12,11 +12,42 @@ public class UIPausa : MonoBehaviour
 
     [SerializeField]
     protected GameObject click;
+    
+    [SerializeField]
+    protected GameObject eventSystemExterior;
 
+
+    public void CerrarEventos()
+    {
+        eventSystemExterior.SetActive(true);
+    }
+    public void AbrirEventos()
+    {
+        eventSystemExterior.SetActive(false);
+    }
     public void CambiarEscena(string nombre)
     {
         click.gameObject.GetComponent<SonidoClink>().Clicar();
-        SceneManager.LoadScene(nombre);
+        if (SceneManager.GetActiveScene().name == "Nivel1Ren")
+        {
+            SceneManager.LoadScene("Nivel1Ren");
+           
+        }
+        else if (SceneManager.GetActiveScene().name == "Nivel2Ren")
+        {
+            SceneManager.LoadScene("Nivel2Ren");
+           
+        }
+        else if (SceneManager.GetActiveScene().name == "Nivel3Ren")
+        {
+            SceneManager.LoadScene("Nivel3Ren");
+            
+        }
+        else
+        {
+            SceneManager.LoadScene(nombre);
+        }
+        
     }
 
     public void PulsarBotonExit()

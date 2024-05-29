@@ -19,6 +19,11 @@ public class MusicaFondo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("VOLUMEN"))
+        {
+            eventoFMODM.setVolume(PlayerPrefs.GetFloat("VOLUMEN"));
+            AudioListener.volume = PlayerPrefs.GetFloat("VOLUMEN");
+        }
 
     }
     public void JugarNiveles(string nombre)
@@ -49,6 +54,7 @@ public class MusicaFondo : MonoBehaviour
         if (PlayerPrefs.HasKey("VOLUMEN"))
         {
             ControladorVolumen(PlayerPrefs.GetFloat("VOLUMEN"));
+            AudioListener.volume = PlayerPrefs.GetFloat("VOLUMEN");
         }
         eventoFMODM.start();
     }
